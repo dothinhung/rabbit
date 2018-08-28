@@ -4,11 +4,14 @@ from models.user import User
 
 app = Flask(__name__)
 
+app.secret_key = 'a super secret key'
+
 mlab.connect()
 
 @app.route('/')
 def index():
     return render_template('index.html')
+
 
 @app.route('/login', methods=["GET", "POST"])
 def login():
@@ -21,12 +24,12 @@ def login():
 
         users = User.objects(uname=uname, password=password)
 
-        if len(users) > 0:
-            session['logged_in'] = True
-            session['user_id'] = uname
-            return "Bạn vào trang cá nhân"
+        if not users:
+            return "Sai usename or password"
         else:
-            return "Sai username hoặc password"
+            session['logged_in'] = True
+            session['user_id'] = str(users[0].id)
+            return "Vào trang cá nhân"
 
 @app.route('/sign-up', methods=["GET", "POST"])
 def sign_up():
@@ -47,7 +50,12 @@ def sign_up():
         )
 
         new_user.save()
+        # sẽ cho redirect vào trang chủ luôn
         return "Bạn đã đk thành công"
+
+@app.route('/blog')
+def blog():
+    return render_template('blog.html')
 
 if __name__ == '__main__':
   app.run(debug=True)
