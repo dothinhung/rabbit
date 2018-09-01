@@ -82,14 +82,15 @@ def bmi():
         height = int(height) / 100
         bmi = int(weight) / (height ** 2)
 
+
         if bmi < 18.5:
-            return render_template('underweight.html') 
+            return render_template('underweight.html', bmi=bmi) 
         elif 18.5 <= bmi < 25:
-            return render_template('normal.html')
+            return render_template('normal.html', bmi=bmi)
         elif 25 <= bmi < 30:
-            return render_template('overweight.html')
+            return render_template('overweight.html', bmi=bmi)
         elif bmi > 30:
-            return render_template('obese.html') 
+            return render_template('obese.html', bmi=bmi) 
 
 ############################ LOG-OUT #####################
 @app.route('/logout')
@@ -97,7 +98,7 @@ def log_out():
     del session['logged_in']
     return redirect(url_for('index'))
 
-
+########################### INDIVIDUAL #######################
 @app.route('/individual')
 def individual():
     print(session)
@@ -108,6 +109,11 @@ def individual():
             return redirect(url_for('login'))
     else:
         return redirect(url_for('login'))
+
+######################### MENU ###############################
+@app.route('/menu')
+def menu():
+    return render_template('menu1.html')
 
 
 if __name__ == '__main__':

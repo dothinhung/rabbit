@@ -1,0 +1,55 @@
+.font-oswald{
+    font-family: 'Oswald', sans-serif;
+}
+
+.font-abril{
+    font-family: 'Abril Fatface', cursive;
+}
+
+.font-roboto{
+    font-family: 'Roboto', sans-serif;
+}
+
+.font-playfair{
+    font-family: 'Playfair Display', serif;
+}
+
+.font-lobster{
+    font-family: 'Lobster', cursive;
+}
+
+.h-700px {
+    height: 700px;
+}
+
+.h-240px {
+    height: 240px;
+}
+
+.container:hover .image {
+    opacity: 0.3;
+  }
+
+.image:hover{
+    color:rgb(170, 170, 170);
+}
+
+.exercises img{
+    -webkit-transform: scale(1);
+	transform: scale(1);
+	-webkit-transition: .4s ease-in-out;
+	transition: .4s ease-in-out;
+}
+
+.exercises:hover image{
+    -webkit-transform: scale(1.1);
+	transform: scale(1.1);
+}
+
+.w-700px{
+    width: 700px;
+}
+
+.h-800px{
+    height: 800px;
+}
