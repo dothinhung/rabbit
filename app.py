@@ -115,6 +115,10 @@ def individual():
 def menu():
     return render_template('menu1.html')
 
+@app.route('/detox')
+def detox():
+    return render_template('detox1.html')
+
 
 if __name__ == '__main__':
   app.run(debug=True)
