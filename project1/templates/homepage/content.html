@@ -1,0 +1,42 @@
+<div class="row featurette py-5">
+  <div class="col-md-4 mx-5 my-3">
+    <h2 class="featurette-heading font-oswald" style="color:#3cb371; font-size: 50px;">Body Mass Index</h2>
+    <br>
+    <p class="lead font-roboto" style="font-size:25px"><span style="color:#3cb371; font-style: italic;">"BMI" </span> 
+    dựa vào chỉ số cơ thể bạn, từ đó đưa ra gợi ý về những bài tập với nội dung phong phú và chế độ ăn phù hợp với cơ thể<br>
+    Dù bạn là người gầy hay thừa cân chỉ cần bạn thực sự nỗ lực và mong muốn thay đổi bản thân chúng tôi sẽ đồng hành cùng bạn. Hãy cùng kiểm tra BMI của bạn ngay hôm nay</p>
+    <button type="button" class="btn btn-success">
+      <!-- thêm def huyền viết vào -->
+      <a href="{{url_for('bmi')}}" class="text-white">Kiểm tra  BMI</a>
+    </button>
+  </div>
+
+  <div class="col-md-6">
+    <iframe width="750" height="480" 
+      src="https://www.youtube.com/embed/_m9At9ywh3E" 
+      frameborder="5 groove" allow="autoplay; encrypted-media" allowfullscreen 
+      style="border: 8px groove lavender">
+    </iframe>
+  </div>
+</div>
+
+<div class="h-700px d-flex flex-column align-items-center justify-content-center">
+  <p class="text-center font-lobster" style="font-size:45px">"Những thói quen tốt cho sức khỏe và <br> cân bằng chỉ số cơ thể BMI"</p>
+
+    <div class="w-75 h-240px d-flex flex-row justify-content-around align-items-center exercises">
+      <img class="image" src="../static/image/bg_1.jpg" style="width: 22%; height: 80%; border: 5px outset lavender;">
+      <img src="../static/image/bg_2.jpg" style="width: 22%; height: 80%; border: 5px outset lavender;">
+      <img src="../static/image/bg_5.jpg" style="width: 22%; height: 80%; border: 5px outset lavender;">
+      <img src="../static/image/blog14.jpg" style="width: 22%; height: 80%; border: 5px outset lavender;">
+  </div>
+  <div class="w-75 h-240px d-flex flex-row justify-content-around align-items-center exercises">
+      <img src="../../static/image/blog7.jpg" style="width: 22%; height: 80%; border: 5px outset lavender;">
+      <img src="../static/image/blog6.jpg" style="width: 22%; height: 80%; border: 5px outset lavender;">
+      <img src="../static/image/blog10.jpg" style="width: 22%; height: 80%; border: 5px outset lavender;">
+      <img src="../static/image/blog3.jpg" style="width: 22%; height: 80%; border: 5px outset lavender;">
+  </div>
+    <button type="button" class="btn btn-success my-5">
+        <a href="{{url_for('blog')}}" class="text-white" style="font-size:20px">SEE MORE</a>
+    </button>
+</div>
+

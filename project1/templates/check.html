@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Check BMI</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="../static/css/style.css" />
+    <script src="main.js"></script>
+    {%include 'meta-data.html'%}
+</head>
+<body>
+    {%include 'homepage/navigation.html'%}
+    <div>
+        <h3 class="header" style="text-align:center; font-size: 40px; color:#3cb371">Thông tin sức khỏe</h3><br><br>
+        <p class="text-center font-lobster" style="font-size:30px; text-align:center;">Body Mass Index
+            <br> "Hãy cùng kiểm tra chỉ số cơ thể bạn"
+        </p>
+    </div>
+    <hr style="width:800px">
+
+    <!-- bảng tính -->
+    <form action="" method="post">
+        <div class="d-flex justify-content-center my-5">
+            <label style="font-weight:bold" >Cân nặng (theo kg) : </label>
+            <input type="text" name="weight" placeholder=" (kg)" class="mx-5" style="border-radius:10px;" required>
+        </div>
+        <div class="d-flex justify-content-center my-5">
+            <label style="font-weight:bold">Chiều cao (theo cm) : </label>
+            <input type="text" name="height" placeholder=" (cm)" class="mx-5" style="border-radius:10px;" required>
+        </div>
+   
+        <div class="form-group">
+            <div class="container">
+                <div class="row d-flex justify-content-center">
+                    <div class="col-sm-2">
+                        <input type="submit" value="Tính BMI" class="btn btn-primary btn-lg btn-block login-button">
+                    </div>
+                </div>
+            </div>
+        </div>
+    </form>
+
+        <!-- Mức độ -->
+        <div class="h-700px d-flex flex-column align-items-center justify-content-start">
+            <!-- <p class="text-center font-lobster" style="font-size:45px">"Những thói quen tốt cho sức khỏe và <br> cân bằng chỉ số cơ thể BMI"</p> -->
+            <div class="w-75 h-240px d-flex flex-row justify-content-around align-items-center">
+                <img src="../static/image/gầy.png" >
+                <img src="../static/image/chuan.png" >
+                <img src="../static/image/hơi mập.png">
+                <img src="../static/image/béo quá.png">
+            </div>
+
+</body>
+</html>
