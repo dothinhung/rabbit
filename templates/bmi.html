@@ -12,15 +12,15 @@
     <h3>Your BMI </h3
         <p>{{bmi}}</p>
             {% if bmi < 16  %}
-                Severely underweight
-            {% elif 16 <= bmi <= 18.5 %}
-                Underweight
+                <a href = "{{url_for('underweight')}}">Severely underweight</a>
+            {% elif 16 <= bmi < 18.5 %}
+                <a href = "{{url_for('underweight')}}">Underweight</a>
             {% elif 18.5 <= bmi < 25 %}
-                Normal
+                <a href = "{{url_for('normal')}}">Normal</a>
             {% elif 25 <= bmi < 30 %}
-                Overweight
-            {% elif  bmi > 30 %}
-                Obese
+                <a href = "{{url_for('overweight')}}">Overweight</a>
+            {% else %}
+            <a href = "{{url_for('overweight')}}">Obese</a>
             {% endif %}
 </body>
 </html>

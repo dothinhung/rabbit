@@ -9,6 +9,33 @@
     <script src="main.js"></script>
 </head>
 <body>
+        <h1> Các chỉ số cơ thể</h1>
+        <table border = "1px">
+            <thead>
+                <th>STT</th>
+                <th>Thời gian</th>
+                <th>Chiều cao</th>
+                <th>Cân nặng</th>
+                <th>BMI</th>
+                <th>Phân loại</th>
+            </thead>
+            <tbody>
+                {% for body in all_body %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{body.time}}</td>
+                    <td>{{body.height}}</td>
+                    <td>{{body.weight}}</td>
+                    <td>{{body.bmi}}</td>
+                    <td>{{body.bmi_type}} </td>
+                </tr>               
+                {% endfor %} 
+                  
+            </tbody>
+        </table>
+        
+    <a href="{{url_for('getlean')}}"> Đi đến chế độ luyện tập của bạn</a> 
     <a href="{{url_for('log_out')}}">Log out</a>
+
 </body>
 </html>
