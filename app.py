@@ -130,10 +130,24 @@ def individual(user_id):
     else:
         return redirect(url_for('login'))
 
-@app.route('/get-lean')
+######################### MENU ###############################
+@app.route('/menu')
+def menu():
+    return render_template('menu1.html')
+
+@app.route('/detox')
+def detox():
+    return render_template('detox1.html')
+
+@app.route('/detox-underweight')
+def detox_underweight():
+    return render_template('detox2.html')
+
+@app.route('/getlean')
 def getlean():
     if "logged_in" in session:
         bmi = session['user_bmi']
+        
         # user_id = session['user_id'] 
 
         # get_body = Body.objects(user_id = user_id)
@@ -141,11 +155,11 @@ def getlean():
         # bmi = Body.objects.order_by('-user_id').first()
 
         if bmi < 18.5:
-            return render_template('underweight2.html', full_name = session['user_name']) 
+            return render_template('underweight2.html', full_name = session['user_name'], user_id = session['user_id']) 
         elif 18.5 <= bmi < 25:
-            return render_template('normal2.html', full_name = session['user_name'])
+            return render_template('normal2.html', full_name = session['user_name'], user_id = session['user_id'])
         else:
-            return render_template('overweight2.html', full_name = session['user_name'])
+            return render_template('overweight2.html', full_name = session['user_name'], user_id = session['user_id'])
     else:
         return render_template(url_for('login'))
 
