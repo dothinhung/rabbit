@@ -13,7 +13,7 @@ class Body(Document):
     height = IntField()
     weight = IntField()
     time = DateTimeField()
-    bmi = IntField()
+    bmi = FloatField()
     user_id = ReferenceField(User)
     bmi_type = StringField()
 
