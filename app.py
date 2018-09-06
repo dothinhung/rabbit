@@ -92,7 +92,7 @@ def bmi():
             bmi_type = "obese"
 
         if "logged_in" in session:
-            session['user_bmi'] = int(bmi)
+            session['user_bmi'] = bmi
             user_id = session['user_id']
             new_body = Body(
                 time = time,
@@ -116,22 +116,29 @@ def bmi():
 ############################ LOG-OUT #####################
 @app.route('/logout')
 def log_out():
-    del session['logged_in']
-    return redirect(url_for('index'))
-
+    if 'logged_in' in session:
+        del session['logged_in']
+        return redirect(url_for('index'))
+    else:
+        return "Bạn chưa đăng nhập"
 
 @app.route('/individual/<user_id>')
 def individual(user_id):
     if "logged_in" in session:
         all_body = Body.objects(user_id = user_id)
-        return render_template('individual.html', all_body = all_body)
+        return render_template('individual.html', all_body = all_body, full_name = session['user_name'])
     else:
         return redirect(url_for('login'))
 
 @app.route('/get-lean')
 def getlean():
     if "logged_in" in session:
-        bmi = session['user_bmi'] 
+        bmi = session['user_bmi']
+        # user_id = session['user_id'] 
+
+        # get_body = Body.objects(user_id = user_id)
+
+        # bmi = Body.objects.order_by('-user_id').first()
 
         if bmi < 18.5:
             return render_template('underweight2.html', full_name = session['user_name']) 
