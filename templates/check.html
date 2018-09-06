@@ -23,33 +23,132 @@
     <form action="" method="post">
         <div class="d-flex justify-content-center my-5">
             <label style="font-weight:bold" >Cân nặng (theo kg) : </label>
-            <input type="text" name="weight" placeholder=" (kg)" class="mx-5" style="border-radius:10px;" required>
+            <input type="text" id="cannang" name="weight" placeholder=" (kg)" class="mx-5" style="border-radius:10px;" required>
         </div>
         <div class="d-flex justify-content-center my-5">
             <label style="font-weight:bold">Chiều cao (theo cm) : </label>
-            <input type="text" name="height" placeholder=" (cm)" class="mx-5" style="border-radius:10px;" required>
+            <input type="text" id="chieucao" name="height" placeholder=" (cm)" class="mx-5" style="border-radius:10px;" required>
         </div>
    
         <div class="form-group">
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="col-sm-2">
-                        <input type="submit" value="Tính BMI" class="btn btn-primary btn-lg btn-block login-button">
+                        <input type="submit" value="Tính BMI" id="tinh" class="btn btn-success btn-lg btn-block login-button">
+                    </div>
+                    <div class="col-sm-2">
+                        <input type="reset" value="Nhập lại" class="btn btn-danger btn-lg btn-block login-button">
                     </div>
                 </div>
+                <br>
             </div>
         </div>
     </form>
+    <div class="container">
+        <div class="row clearfix">
+                <table class="table tinhbmi">
+                        <tbody >
+                            <tr>
+                                <td class="gay" style="padding: 10px 100px 10px 100px;">
+                                    <div id="i1">
+                                        <img src="../static/image/gầy.png" class="img-responsive" >
+                                    </div>
+                                </td>
+                               <td class="chuanroi"  style="padding:10px 100px 10px 100px;">
+                                    <div id="i2">
+                                        <img src="../static/image/chuan.png" class="img-responsive" >
+                                    </div>
+                                </td>
+                                <td class="hoimap"  style="padding: 10px 100px 10px 100px;"> 
+                                    <div id="i3">
+                                        <img src="../static/image/hơi mập.png" class="img-responsive">
+                                    </div>
+                                </td>
+                                <td class="beoqua"  style="padding: 10px 100px 10px 100px;"> 
+                                    <div id="i4">
+                                        <img src="../static/image/béo quá.png" class="img-responsive">
+                                    </div>
+                                </td>
+                            </tr>
 
-        <!-- Mức độ -->
-        <div class="h-700px d-flex flex-column align-items-center justify-content-start">
-            <!-- <p class="text-center font-lobster" style="font-size:45px">"Những thói quen tốt cho sức khỏe và <br> cân bằng chỉ số cơ thể BMI"</p> -->
-            <div class="w-75 h-240px d-flex flex-row justify-content-around align-items-center">
-                <img src="../static/image/gầy.png" >
-                <img src="../static/image/chuan.png" >
-                <img src="../static/image/hơi mập.png">
-                <img src="../static/image/béo quá.png">
-            </div>
+                            <tr>
+                                <td class="gay" style="padding: 10px 80px 10px 100px;">
+                                    <div class="bmi11 bmi ">
+                                        <button type="button" class="btn btn-primary btn-lg">Gầy</button>
+                                    </div>
+                                </td>
+                                <td class="chuanroi" style="padding: 10px 80px 10px 100px;">
+                                    <div class="bmi1 bmi">
+                                    <button type="button" class="btn btn-info btn-lg">Chuẩn rồi</button>
+                                    </div>
+                                </td>
+                                <td class="chuanroi" style="padding: 10px 80px 10px 100px;">
+                                    <div class="bmi2 bmi">
+                                        <button type="button" class="btn btn-success btn-lg">Hơi béo</button>
+                                    </div>
+                                </td>
+                                <td class="chuanroi" style="padding: 10px 80px 10px 100px;">
+                                    <div class="bmi3 bmi">
+                                        <button type="button" class="btn btn-danger btn-lg">Béo quá</button>
+                                    </div>
+                                </td>
+                            </tr>
+                        </tbody>
+                    </table>           
+                </div>
+    </div>
+
+    <script>
+        $("#tinh").click(function(){
+            var chieucao = $("#chieucao").val();
+            var chieucaoM = chieucao / 100;
+            var cannang = $("#cannang").val();
+            var bmi = cannang / (chieucaoM * chieucaoM);
+
+            if(bmi < 18.5){
+                $(".gay img , .bmi11").attr({
+                    style: "opacity:1"
+                });
+                $(" .chuanroi img , .bmi1 , .hoimap img , .bmi2, .beoqua img, bmi3, .beoqua2 img, .bmi5 , .beoqua3 img, .bmi4").attr({
+                    style:"opacity:0.2"
+                });
+            }
+            else if (18.5 <= bmi && bmi < 24.9){
+                $(".chuanroi img, .bmi1 ").attr({
+                style: "opacity:1"
+                });
+                $(".gay img , .bmi11, .hoimap img, .bmi2, .beoqua img, .bmi3, .beoqua2 img, .bmi5,.beoqua3 img, .bmi4").attr({
+                style: "opacity:0.2"
+                });
+            }
+            else if (25 <= bmi && bmi < 29.9) {
+                $(".hoimap img, .bmi2").attr({
+                    style: "opacity:1"
+                });
+                $(" .chuanroi img, .bmi1 , .gay img , .bmi11, .beoqua img, .bmi3, .beoqua2 img, .bmi5,.beoqua3 img, .bmi4").attr({
+                    style: "opacity:0.2"
+                });
+
+            }
+            else if (30 <= bmi) {
+                $(".beoqua img, .bmi3").attr({
+                    style: "opacity:1"
+                });
+                $(" .chuanroi img, .bmi1 , .hoimap img, .bmi2,.gay img , .bmi11, .beoqua2 img, .bmi5,.beoqua3 img, .bmi4").attr({
+                    style: "opacity:0.2"
+                });
+
+            }
+        });
+
+        $(".btn-danger").click(function () {
+            $(".beoqua3 img, .bmi4, .chuanroi img, .bmi1 , .hoimap img, .bmi2, .beoqua img, .bmi3, .beoqua2 img, .bmi5,.gay img , .bmi11").attr({
+                style: "opacity:0.3"
+            });
+        });
+
+    </script>
+
 
 
 </body>

@@ -53,3 +53,50 @@
 .h-800px{
     height: 800px;
 }
+
+table, td, th {
+    text-align: center;    
+}
+
+.bmi1, .bmi2, .bmi3, .bmi4, .bmi5, .bmi11 {
+    padding: 15px 0;
+    color: #fff;
+    border-radius: 8px;
+}
+.img-responsive, .img-responsive img {
+    display: inline;
+    max-width: 100%;
+    height: auto;
+}
+
+.bmi11 {
+    background: #f4ce01;
+}
+.bmi1 {
+    background: #5cade2;
+}
+
+.bmi2 {
+    background: #9a59b5;
+}
+
+.bmi3 {
+    background: #e94c3d;
+}
+
+.bmi4 {
+    background: #e94c3d;
+}
+
+.tinhbmi tr td {
+    position: relative;
+}
+
+    .tinhbmi tr td > img, .tinhbmi tr td > div > img, .bmi {
+        opacity: 0.4;
+    }
+
+.btn {
+    width: 100px;
+    margin-left: 50px;
+}
