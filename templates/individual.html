@@ -18,6 +18,7 @@
                 <th>Cân nặng</th>
                 <th>BMI</th>
                 <th>Phân loại</th>
+                <th>Chế độ luyện tập</th>
             </thead>
             <tbody>
                 {% for body in all_body %}
@@ -28,13 +29,14 @@
                     <td>{{body.weight}}</td>
                     <td>{{body.bmi}}</td>
                     <td>{{body.bmi_type}} </td>
+                    <td><a href="{{url_for('getlean', bmi_id= body.id)}}">View</a></td>
                 </tr>               
                 {% endfor %} 
                   
             </tbody>
         </table>
         
-    <a href="{{url_for('getlean')}}"> Đi đến chế độ luyện tập của bạn</a> 
+    {# <a href="{{url_for('getlean', bmi_id=)}}"> Đi đến chế độ luyện tập của bạn</a> #}
     <a href="{{url_for('log_out')}}">Log out</a>
 
 </body>
