@@ -10,7 +10,11 @@
     {%include 'meta-data.html'%}
 </head>
 <body>
-    {%include 'homepage/navigation.html'%}
+    {% if session['logged_in'] == True %}
+        {%include 'homepage/nav.html'%}
+    {%else%}
+        {%include 'homepage/navigation.html'%}
+    {%endif%}
     <div>
         <h3 class="header" style="text-align:center; font-size: 40px; color:#3cb371">Thông tin sức khỏe</h3><br><br>
         <p class="text-center font-lobster" style="font-size:30px; text-align:center;">Body Mass Index

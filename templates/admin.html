@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Admin Ted</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+</head>
+<body>
+    <h1>Thêm video</h1>
+    
+    <form method="post">
+        <label>Link: </label>
+        <input type="text" name='link'>
+        <input type="submit" value="Gửi">
+    </form>
+
+    <table border="1px">
+        <thead>
+            <th>STT</th>
+            <th>Name</th>
+            <th>Views</th>
+            <th>Link</th>
+            <th>Thumbnail</th>
+            <th>Time</th>
+            <th>Min</th>
+        </thead>
+
+        <tbody>
+            {% for cardio in cardios %}
+                <tr>
+                    <td>{{loop.index}}</td>
+                    <td>{{cardio.title}}</td>
+                    <td>{{cardio.views}}</td>
+                    <td>
+                        <a href="{{cardio.link}}" target="_blank">Views</a>       
+                    </td>
+                    <td>
+                        <img src="{{cardio.thumbnail}}" alt="" width="200px" height="130px">   
+                    </td>
+                    <td>{{cardio.duration}}</td>
+                    <td>{{cardio.timestamp}}</td>
+                </tr>
+            {% endfor %}
+        </tbody>
+    </table>
+    
+</body>
+</html>

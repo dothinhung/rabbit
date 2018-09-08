@@ -1,0 +1,180 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Menu-Underweight</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    {%include 'meta-data.html'%}
+</head>
+<body>
+    {%if session['logged_in'] == True %}
+      {%include 'homepage/nav.html'%}
+    {%else%}
+      {%include 'homepage/navigation.html'%}
+    {%endif%}
+    <!-- <h4 class="text-center my-5">Thực đơn Eat clean cho bữa ăn thêm phong phú</h4> -->
+    <div class="album py-5 bg-light">
+            <h4 class="text-center my-5 font-lobster" style="font-size:45px;">Top 15 thực phẩm tăng cân tự nhiên dành cho người gầy</h4>
+        <div class="container">
+
+          <!-- img11 -->
+          <div class="row">
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" style="height:228px;" src="../static/image/un5.jpg" data-holder-rendered="true">
+                <div class="card-body">
+                  <p class="card-text">Chuối là một loại thực phẩm tăng cân lành mạnh. Trong chuối chứa một lượng carbohydrate và đường giúp tạo khối lượng nạc mà không tích tụ mỡ giúp tăng cân và tốt cho sức khỏe.</p>
+                </div>
+              </div>
+            </div>
+            <!-- img22 -->
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" src="../static/image/un6.jpg" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22208%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20208%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_165911fa766%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A11pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_165911fa766%22%3E%3Crect%20width%3D%22208%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2266.953125%22%20y%3D%22117.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                <div class="card-body">
+                  <p class="card-text">Sữa rất giàu protein, canxi và carbohydrate, có lợi trong việc hỗ trợ tăng cân. Hãy uống ít nhất 2 ly sữa mỗi ngày để bổ sung calo giúp tăng cân an toàn, hiệu quả.</p>
+                </div> 
+              </div>
+            </div>
+            <!-- img29 -->
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" src="../static/image/un7.jpg" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                <div class="card-body">
+                  <p class="card-text">Thịt nạc rất giàu calo và protein, tốt cho việc hỗ trợ tăng cường cơ bắp giúp tăng cân nhanh chóng và khỏe mạnh.</p>
+                </div>
+              </div>
+            </div> 
+
+            <!-- img4 -->
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" src="../static/image/un9.jpg" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                <div class="card-body">
+                  <p class="card-text">Trong pho mát có chứa nhiều sữa, protein, canxi và chất béo, cholesterol tốt cho cơ thể. Bổ sung cho mình một lượng pho mát vừa phải sẽ giúp cho bạn tăng cân và thon gọn cơ thể.</p>
+                  
+                </div>
+              </div>
+            </div>
+            <!-- img5 -->
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" src="../static/image/un11.jpg" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                <div class="card-body">
+                  <p class="card-text">Bổ sung cho mình các loại dầu thực vật như dầu dừa, dầu ô liu và dầu đậu phộng để bổ sung calo tốt cho tim mạch và không gây hại cho cơ thể.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- img6 -->
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" src="../static/image/un13.jpg" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22208%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20208%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_165911fa76e%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A11pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_165911fa76e%22%3E%3Crect%20width%3D%22208%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2266.953125%22%20y%3D%22117.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                <div class="card-body">
+                  <p class="card-text">Trong thành phần của bí ngô đỏ chứa rất nhiều chất xơ và chất kháng oxy hóa khi được kết hợp với dầu ô liu, giúp cung cấp dưỡng chất cho cơ thể làm tăng cân nhanh chóng.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- img7 -->
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" src="../static/image/un14.jpg" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                <div class="card-body">
+                  <p class="card-text">Nước ép trái cây giúp tăng cường lượng đường và dưỡng chất cho cơ thể giúp tăng cường dinh dưỡng và ngon miệng.</p>
+                </div>
+              </div> 
+            </div>
+
+            <!-- img8 -->
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" src="../static/image/un15.jpg" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                <div class="card-body">
+                  <p class="card-text">Đậu nành là loại thực phẩm tăng cân cực kỳ bổ dưỡng. Trong đậu nành chứa nhiều protein, canxi, chất xơ, vitamin B và sắt rất tốt cho cơ thể.</p>
+                </div>
+              </div>
+            </div>
+
+            <!-- img9 -->
+            <div class="col-md-4">
+              <div class="card mb-4 shadow-sm">
+                <img class="card-img-top" src="../static/image/un1.jpg" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                <div class="card-body">
+                  <p class="card-text">Trong bơ đậu phộng chứa rất nhiều protein, vitamin và calo giúp cho cơ thể có thể nạp thêm nhiều calo mà vẫn phòng tránh được các  thức ăn có hại cho sức khỏe. Bơ đậu phộng là một sự lựa chọn cho một bữa ăn sáng lành mạnh, giúp tăng cân nhanh chóng.</p>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <!-- img10 -->
+      <div class="album bg-light">
+            <div class="container">
+              <div class="row">
+                <div class="col-md-4">
+                  <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" style="height: 228px;" src="../static/image/un3.jpg" data-holder-rendered="true">
+                    <div class="card-body">
+                      <p class="card-text">Trong các loại hạt chứa một hàm lượng calo cao và nhiều khoáng chất có lợi. Việc  bổ sung ngũ cốc hoặc những loại hạt khác và khẩu phần ăn hàng ngày sẽ giúp tăng cường dinh dưỡng.</p>
+                    </div>
+                  </div>
+                </div>
+
+
+                <!-- img11 -->
+                <div class="col-md-4">
+                  <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" src="../static/image/un4.jpg" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22208%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20208%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_165911fa766%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A11pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_165911fa766%22%3E%3Crect%20width%3D%22208%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2266.953125%22%20y%3D%22117.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                    <div class="card-body">
+                      <p class="card-text">Ngũ cốc là một loại thực phẩm giúp tăng cân vì trong ngũ cốc có chứa nhiều chất dinh dưỡng và carbohydrate. Đặc biệt trong các loại bánh mì và lúa mạch chứa một lượng lượng calo giúp hỗ trợ tăng cân hiệu quả.</p>
+                    </div> 
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" src="../static/image/un8.jpg" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                    <div class="card-body">
+                      <p class="card-text">Khoai tây chứa một lượng lớn đường, protein và carbohydrate và giàu vitamin giúp khỏe mạnh và tăng cường miễn dịch cho cơ thể. Việc ăn khoai tây nướng hoặc chiên với một lượng hợp lý sẽ giúp bạn tăng cân một cách nhanh chóng.</p>
+                    </div>
+                  </div>
+                </div>
+    
+                <div class="col-md-4">
+                  <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" src="../static/image/un12.jpg" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                    <div class="card-body">
+                      <!-- <p class="card-text">Phương pháp ăn kiêng Eat Clean giúp bạn đơn giản hóa một cách tối đa trong nấu nướng, giúp ăn ngon lại giảm cân với những nguyên liệu dễ kiếm.</p> -->
+                      <p class="card-text">Trong trái cây khô chứa rất nhiều calo, protein và carbohydrate, chất xơ và các vitamin, khoáng chất cần thiết cho cơ thể để có thể duy trì một sức khỏe ổn định. Có thể ăn trái cây khô thay thế trái cây tươi hàng ngày.</p>
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" src="../static/image/un10.jpg" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                    <div class="card-body">
+                      <p class="card-text">Bơ là một loại quả chứa nhiều carbohydrate và chất béo lành mạnh có lợi cho cơ thể. Ăn bơ kèm với sữa sẽ giúp tăng cân nhanh chóng mà không gây tích tụ mỡ. Ngoài ra, bạn cũng có thể thử các món salad bơ vô cùng lành mạnh và tốt cho sức khoẻ, lại giúp tăng cân nhanh.
+
+                    </p>
+    
+                    </div>
+                  </div>
+                </div>
+                <div class="col-md-4">
+                  <div class="card mb-4 shadow-sm">
+                    <img class="card-img-top" src="../static/image/un2.jpg" alt="Thumbnail [100%x225]" src="data:image/svg+xml;charset=UTF-8,%3Csvg%20width%3D%22208%22%20height%3D%22225%22%20xmlns%3D%22http%3A%2F%2Fwww.w3.org%2F2000%2Fsvg%22%20viewBox%3D%220%200%20208%20225%22%20preserveAspectRatio%3D%22none%22%3E%3Cdefs%3E%3Cstyle%20type%3D%22text%2Fcss%22%3E%23holder_165911fa76e%20text%20%7B%20fill%3A%23eceeef%3Bfont-weight%3Abold%3Bfont-family%3AArial%2C%20Helvetica%2C%20Open%20Sans%2C%20sans-serif%2C%20monospace%3Bfont-size%3A11pt%20%7D%20%3C%2Fstyle%3E%3C%2Fdefs%3E%3Cg%20id%3D%22holder_165911fa76e%22%3E%3Crect%20width%3D%22208%22%20height%3D%22225%22%20fill%3D%22%2355595c%22%3E%3C%2Frect%3E%3Cg%3E%3Ctext%20x%3D%2266.953125%22%20y%3D%22117.3%22%3EThumbnail%3C%2Ftext%3E%3C%2Fg%3E%3C%2Fg%3E%3C%2Fsvg%3E" data-holder-rendered="true" style="height: 225px; width: 100%; display: block;">
+                    <div class="card-body">
+                      <p class="card-text">Trong thành phần của trứng chứa rất nhiều loại protein, vitamin A, D, E và một lượng cholesterol vừa đủ có tác dụng bổ sung dinh dưỡng và dưỡng chất cho cơ thể giúp tăng cân một cách lành mạnh. Hãy bổ sung ít nhất một quả trứng trong ngày để mau chóng thấy được hiệu quả.</p>
+                    </div>
+                  </div>
+                </div>
+    
+                </div>
+                </div>
+                </div>
+</body>
+</html>

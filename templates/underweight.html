@@ -29,8 +29,11 @@
   </head> 
 
   <body id="page-top">
-
-    {%include 'homepage/navigation.html'%}
+    {%if session['logged_in'] == True %}
+      {%include 'homepage/nav.html'%}
+    {%else%}
+      {%include 'homepage/navigation.html'%}
+    {%endif%}
 
     <!-- Portfolio Grid -->
     <section class="bg-light" id="portfolio">
@@ -38,7 +41,7 @@
         <div class="row">
             <div class="col-lg-12 text-center text-warning">
                 <h2 class="section-heading text-uppercase">chỉ số BMI : {{bmi}}</h2>
-                <h3 class="section-subheading text-muted">Dựa vào chỉ số BMI cho thấy bạn đang bị <strong>gầy.</strong> 
+                <h3 class="section-subheading text-muted">Dựa vào chỉ số BMI cho thấy bạn đang bị <strong>gầy</strong>.
                     Áp dụng các biện pháp này và bạn có thể có được cơ thể như ý nhé.
                 </h3>
             </div>
@@ -56,11 +59,11 @@
                   <i class="fas fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="../static/image/img1.jpg" style = "height:245px;" alt="">
+              <img class="img-fluid" src="../static/image/u1.jpg" alt="" style="height:240px;">
             </a>
             <div class="portfolio-caption">
-              <h4>Eat clean</h4>
-              <p class="text-muted">Eat clean là gì?</a></p>
+              <h4>Chế độ ăn cho người gầy</h4>
+              <!-- <p class="text-muted">Cơ thể khỏe mạnh và chống lão hóa</a></p> -->
             </div>
           </div>
           <div class="col-md-4 col-sm-6 portfolio-item">
@@ -70,11 +73,11 @@
                   <i class="fas fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="../static/image/img20.jpg" style = "height:245px;" alt="">
+              <img class="img-fluid" src="../static/image/u2.jpg" alt="">
             </a>
             <div class="portfolio-caption">
-              <h4>Eat clean</h4>
-              <p class="text-muted">Ăn giờ nào?</p>
+              <h4>Top thực phẩm tăng cân tự nhiên, hiệu quả</h4>
+              <!-- <p class="text-muted">Giảm cân lành mạnh</p> -->
             </div>
           </div>
           <div class="col-md-4 col-sm-6 portfolio-item">
@@ -84,11 +87,11 @@
                   <i class="fas fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="../static/image/img17.jpg" style = "height:245px;" alt="">
+              <img class="img-fluid" src="../static/image/u3.jpg" alt="" style="height:240px;">
             </a>
             <div class="portfolio-caption">
-              <h4>Eat clean</h4>
-              <p class="text-muted">Click để được chia sẻ kinh nghiệm tăng cân</p>
+              <h4>Những lưu ý khi ăn chế độ ăn tăng cân</h4>
+              <!-- <p class="text-muted">Cung cấp thêm năng lượng cho cơ thể</p> -->
             </div>
             </div>
             
@@ -107,7 +110,7 @@
             </a>
             <div class="portfolio-caption">
               <h4>Detox</h4>
-              <p class="text-muted">Tham khảo một số công thức detox cơ bản</p>
+              <p class="text-muted">Một số công thức detox cơ bản</p>
             </div>
           </div>
           <div class="col-md-4 col-sm-6 portfolio-item">
@@ -135,19 +138,46 @@
             </a>
             <div class="portfolio-caption">
               <h4>Detox</h4>
-              <p class="text-muted">Detox có dành cho người gầy?</p>
+              <p class="text-muted">Làm đẹp da</p>
             </div>
           </div>
         </div>
       </div>
 
       <!-- chế độ tập -->
-      <div class="col-lg-12 text-center my-5">
+      <div class="col-lg-12 text-center my-5 ">
           <h2 class="section-heading text-uppercase">Chế độ tập luyện</h2>
           <h3 class="section-subheading text-muted">Ngoài việc có chế độ ăn khoa học, bạn cần phải có chế độ tập luyện phù hợp để đạt hiệu quả cao.
-            <br>Một số gợi ý về bài tập cho người muốn tăng cân. Về cơ bản, điều bạn cần là ăn nhiều hơn và tập luyện điều độ để cơ thể không tích mỡ và tăng cơ.
+            <br>Một số gợi ý về bài tập cho người giảm cân. Nếu như bạn đã làm việc cả ngày trong văn phòng
+            thì có chạy bộ cũng là 1 lựa chọn tốt cho bạn
           </h3>
+
+          <h4 class="text-center font-lobster my-3">Aerobic</h4>
+          {%for video in videos %}
+          <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
+              <a href="{{url_for('detail', youtube_id=video.youtube_id)}}">
+              <img class="card-img-top" src="{{video.thumbnail}}" alt="Card image cap" width="200px" height="130px">
+              <div class="card-body">
+                <p class="card-text">{{video.title}}</p>
+              </div>
+              </a>
+            </div>
+        {%endfor%}
+
+          
+          <h4 class="text-center font-lobster my-3">Cardio</h4>
+          {% for cardio in cardios %}
+          <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
+              <a href="{{url_for('detail', youtube_id=cardio.youtube_id)}}">
+              <img class="card-img-top" src="{{cardio.thumbnail}}" alt="Card image cap" width="200px" height="130px" >
+              <div class="card-body">
+                <p class="card-text">{{cardio.title}}</p>
+              </div>
+              <span class="thumb__duration">{{cardio.durration}}</span>
+          </div>
+          {% endfor %}
       </div>
+
     </section>
 
     <!-- Portfolio Modals -->
@@ -166,16 +196,12 @@
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Eat clean</h2>
-                  <p class="item-intro text-muted">Chế độ ăn eat clean cho cơ thể khỏe mạnh và chống lão hóa</p>
-                  <img class="img-fluid d-block mx-auto" src="../static/image/img1.jpg" alt="">
-                  <p>Nếu bạn đang muốn ăn lành mạnh để tăng cân nhưng không biết nên ăn thế nào để vừa khỏe vừa bổ sung nhiều chất cho cơ thể... 
-                    thì đây chính là giải pháp dành cho bạn. Eat clean không phải là ăn kiêng mà là ăn sạch, có nghĩa là cung cấp cho cơ thể các món ăn từ các thực phẩm tự nhiên, trong lành và bổ dướng nhất.
-                    <a target="_blank" href="{{url_for('menu')}}">
-                      Thực đơn eat clean cho bạn
-                    </a>
-                  </p>
                   
+                    <h2 class="text-uppercase">Chế độ tăng cân kết hợp giữa chất đạm, chất béo và tinh bột</h2>
+                  <img class="img-fluid d-block mx-auto" src="../static/image/u1.jpg" alt="">
+                      <a target="_blank" href="{{url_for('menu_under')}}">
+                        Tìm hiểu về 4 chế độ ăn tăng cân
+                      </a>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
                     Close </button>
@@ -201,14 +227,12 @@
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Eat clean</h2>
-                  <p class="item-intro text-muted">Chế độ ăn eat clean cho cơ thể khỏe mạnh và chống lão hóa.</p>
-                  <img class="img-fluid d-block mx-auto" src="../static/image/img19.jpg" alt="">
-                  <p>Việc ăn uống giờ nào cũng rất quan trọng. Bạn nên ăn 6 bữa/ngày và không nên để cơ thể bị đói. Nếu phân vân không biết dùng gì cho bữa phụ, bạn có thể uống các loại sữa bổ sung dinh dưỡng như ensure hoặc uống protein shake để cung cấp protein cho cơ thể.
-                      <a target="_blank" href="http://kenh14.vn/suc-khoe-gioi-tinh/tang-can-giam-can-bang-cach-an-uong-theo-tung-thoi-diem-20131014092351714.chn">
-                        Tham khảo thời gian nào thì nên "nạp năng lượng cho cơ thể"
-                      </a></p>
-                  
+                  <h2 class="text-uppercase">Thực phẩm giúp tăng cân tự nhiên</h2>
+                  <img class="img-fluid d-block mx-auto" src="../static/image/u2.jpg" alt="">
+                  <p>Cần bổ sung các loại thực phẩm giúp tăng cân có nguồn dinh dưỡng cao giúp nạp năng lượng,  bổ sung dưỡng chất và giúp tăng cân nhanh chóng. Sau đây là top 15 thực phẩm tăng cân dành cho người gầy.</p>
+                      <a target="_blank" href="{{url_for('menu_under1')}}">
+                        Thực đơn cho bạn
+                      </a>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
                     Close </button>
@@ -234,14 +258,12 @@
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Eat clean</h2>
-                  <p class="item-intro text-muted">Chế độ ăn eat clean cho cơ thể khỏe mạnh và chống lão hóa.</p>
-                  <img class="img-fluid d-block mx-auto" src="../static/image/img17.jpg" alt="">
-                  <p>Hãy cùng tham khảo kinh nghiệm sống từ Hana Giang Anh nhé. Cô nàng bắt đầu với cân nặng 38 kg, trong khi chiều cao 1m58, vòng 3 lép kẹp và đã lên 45kg sau 1 năm tập luyện và 51 kg sau 1 năm nữa. Quan trọng là người săn chắc, nhiều cơ và vòng 3 tận 93 cm.
-                      <a target="_blank" href="https://www.facebook.com/hanagianganh/photos/a.984078298334870/1197239573685407/?type=1&theater">
-                        Click để thấy người thật việc thật.
-                      </a></p>
-                  
+                  <h5 class="text-center">Những sai lầm cần tránh trong việc chọn thực phẩm tăng cân dành cho người gầy</h5>
+                  <!-- <p class="item-intro text-muted">Chế độ ăn eat clean cho cơ thể khỏe mạnh và chống lão hóa.</p> -->
+                  <img class="img-fluid d-block mx-auto" src="../static/image/u3.jpg" alt="">
+                  <p>Ăn nhiều đồ ăn chiên rán, tinh bột<br>
+                    Bổ xung quá nhiều đạm động vật<br>
+                    Không ăn rau
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
                     Close</button>
