@@ -1,0 +1,70 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <title>Menu_Underweight</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <link rel="stylesheet" type="text/css" media="screen" href="main.css" />
+    <script src="main.js"></script>
+    {%include 'meta-data.html'%}
+</head>
+<body>
+
+        {%if session['logged_in'] == True %}
+        {%include 'homepage/nav.html'%}
+      {%else%}
+        {%include 'homepage/navigation.html'%}
+      {%endif%}
+
+      <h3 class="text-center font-lobster">Chế độ ăn tăng cân cho người gầy</h3>
+        <div class="card mx-5 my-3 py-3">
+                <!-- <img class="card-img-top" src="../static/image/m1.jpg" alt="Card image cap" style="height:300px; width:800px; padding-left:300px;"> -->
+                <div class="card-body">
+                  <h5 class="card-title"> 1. Chế độ ăn tăng cân kết hợp giữa chất đạm, chất béo và tinh bột</h5>
+                  <img class="card-img-top" src="../static/image/m1.jpg" alt="Card image cap" style="height:300px; width:800px; padding-left:300px;"><br><br>
+                  <p class="card-text">Bổ sung đầy đủ chất đạm, chất béo và tinh bột là một trong những chế độ ăn tăng cân hiệu quả nhưng không tích tụ mỡ thừa mà người gầy bắt buộc phải ghi nhớ. Đây là chế độ ăn được thực hiện cho 3 bữa chính để tăng cân cho người gầy. Để thực hiện được chế độ ăn này, bạn cần bổ sung thêm thịt, cá, 
+                      cơm cùng những thực phẩm béo những không nhiều mỡ vào 3 bữa chính.
+                    <br>
+                    Duy trì chế độ ăn với chất đạm, chất béo và tinh bột vào mỗi ngày,thêm vào đó là những bữa phụ lành mạnh sẽ giúp cho bạn tăng cân an toàn và hiệu quả. Tuy nhiên, nếu bạn là một người hay chán ăn, lười ăn thì đây không phải là chế độ ăn khả thi dành cho bạn vì bạn phải dung nạp vào cơ thể một lượng thức ăn nhất định.
+                    </p>
+                  <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                </div>
+
+                <!-- <img class="card-img-top" src="../static/image/m2.jpeg" alt="Card image cap" style="height:300px; width:800px; padding-left:300px;"> -->
+                <div class="card-body">
+                  <h5 class="card-title"> 2. Chế độ ăn giàu protein để tăng cơ, tăng cân hiệu quả</h5>
+                  <img class="card-img-top" src="../static/image/m2.jpeg" alt="Card image cap" style="height:300px; width:800px; padding-left:300px;">
+                <br><br>  <p class="card-text">Những thức ăn giàu protein điển hình như thịt nạc, cá hồi, ngũ cốc, đậu,… sẽ giúp cơ thể của bạn dẻo dai và tăng cơ nhanh chóng hơn. Việc tăng cân bằng biện pháp này thực sự có hiệu quả và được nhiều bạn trẻ áp dụng hiện nay.
+                    </p>
+                  <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                </div>
+
+                <div class="card-body">
+                        <h5 class="card-title"> 3. Chế độ ăn tăng cân bữa phụ với những loại thức ăn vặt lành mạnh</h5>
+                        <img class="card-img-top" src="../static/image/m3.jpg" alt="Card image cap" style="height:300px; width:800px; padding-left:300px;">
+                      <br><br>  <p class="card-text">Nếu bạn muốn tăng cân thì đừng quên bổ sung các bữa phụ lành mạnh vào chế độ dinh dưỡng cho người gầy. Bạn có thể ăn những món ăn như trái cây khô, sữa, chuối, chè, kem,… vào các bữa phụ xen kẽ với bữa chính trong ngày. Điều này giúp bạn tăng cân nhanh chóng mà không 
+                          cần phải ép mình vào những bữa ăn với quá nhiều thức ăn.
+                            Một lưu ý nhỏ dành cho các bạn sử dụng chế độ ăn này chính 
+                            là bạn cần phải thay đổi thường xuyên các món ăn trong bữa phụ để tránh việc lặp lại quá nhiều một món khiến bạn chán ăn và bỏ bữa phụ. Dù sử dụng bữa phụ nhưng bạn cũng không nên bỏ qua bữa chính vì điều này sẽ khiến bạn bị thiếu hụt các chất dinh dưỡng cần thiết để nuôi cơ thể. Ngoài ra, những bữa phụ cũng cần phải có thời 
+                            gian giãn cách phù hợp để cơ thể bạn có thể tiếp nhận hiệu quả lượng thức ăn.
+                          </p>
+                        <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                      </div>
+
+                      <div class="card-body">
+                            <h5 class="card-title">4. Chế độ ăn tăng cân với rau quả</h5>
+                            <img class="card-img-top" src="../static/image/m4.jpg" alt="Card image cap" style="height:300px; width:800px; padding-left:300px;">
+                          <br><br>  <p class="card-text">Bên cạnh thịt cá, rau quả cũng là những thực phẩm 
+                              tăng cân không thể thiếu trong chế độ dinh dưỡng cho người gầy.
+                               Việc kết hợp rau quả vào chế độ ăn uống sẽ có tác dụng kép đối với việc tăng cân của bạn.
+                                Vì rau quả vừa giúp cân bằng dinh dưỡng, lại vừa giúp bạn có được hiệu quả tăng cân cho người gầy nhanh chóng hơn. Nhiều bạn thường quan niệm rằng, việc ăn rau củ chỉ giúp giảm cân chứ không giúp tăng cân. Trên thực tế, quan niệm này là hoàn toàn sai lầm đối với một số loại rau củ,
+                               điển hình trong đó là bắp, khoai tây và đậu hà lan.
+                              </p>
+                            <!-- <p class="card-text"><small class="text-muted">Last updated 3 mins ago</small></p> -->
+                          </div>
+              </div>
+              
+              {%include 'homepage/footer.html'%}
+</body>
+</html>

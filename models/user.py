@@ -3,17 +3,16 @@ import mlab
 
 mlab.connect
 
+class Body(Document):
+    height = IntField()
+    weight = IntField()
+    time = DateTimeField()
+    bmi = FloatField()
+    bmi_type = StringField()
+
 class User(Document):
     fname = StringField()
     email = EmailField()
     uname = StringField()
     password = StringField()
-
-class Body(Document):
-    height = IntField()
-    weight = IntField()
-    time = DateTimeField()
-    bmi = IntField()
-    user_id = ReferenceField(User)
-    bmi_type = StringField()
-
+    bmi_id = ListField(ReferenceField(Body))
