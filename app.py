@@ -106,11 +106,11 @@ def bmi():
             
             current_user = User.objects.with_id(user_id)
             # current_user.update(add_to_set__bmi_id = str(new_body.id))
-            print(new_body)
-            print(current_user)
+            # print(new_body)
+            # print(current_user)
             current_user.update(push__bmi_id = new_body)
             return render_template ('individual.html', all_body = current_user.bmi_id, full_name = session['user_name'])
-            return "sadasd"
+            # return "sadasd"
         else:
             if bmi < 18.5:
                 return render_template('underweight.html', bmi = bmi) 
