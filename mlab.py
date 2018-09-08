@@ -8,8 +8,8 @@ import mongoengine
 host = "ds125272.mlab.com"
 port = 25272
 db_name = "project-c4e19"
-user_name = "user"
-password = "userc4e19"
+user_name = "cardio"
+password = "cardio123"
 
 
 def connect():

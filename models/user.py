@@ -16,6 +16,3 @@ class User(Document):
     uname = StringField()
     password = StringField()
     bmi_id = ListField(ReferenceField(Body))
-
-
-

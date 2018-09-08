@@ -1,6 +1,8 @@
 from flask import *
 import mlab
-from models.user import User, Body
+from models.user import Body, User
+from models.video import Video,Cardio
+from youtube_dl import YoutubeDL 
 import datetime
 
 app = Flask(__name__)
@@ -27,20 +29,18 @@ def login():
         form = request.form
         uname = form['uname']
         password = form['password']
-
-        users = User.objects(uname=uname, password=password)
-
-        if not users:
+        users = User.objects(uname__exact=uname, password__exact=password)
+        if len(users) == 0:
             return "Sai usename or password"
         else:
+            user_id = str(users[0].id)
+            full_name = str(users[0].fname)
             session['logged_in'] = True
-            session['user_id'] = str(users[0].id)
+            session['user_id'] = user_id
+            session['user_name'] = full_name
             # for user in users:
-            session['user_name'] = str(users[0].fname)
-                # session['user_id']
-            return  render_template('index2.html', full_name = session['user_name'], user_id = session['user_id'])
-
-
+            #     session['user_name'] = user['fname']
+            return redirect(url_for('index'))
 
 #################### SIGN-UP #########################
 @app.route('/sign-up', methods=["GET", "POST"])
@@ -64,19 +64,14 @@ def sign_up():
 
         new_user.save()
         # sẽ cho redirect vào trang chủ luôn
-        return redirect(url_for('login'))
-
-######################## BLOG ###########################
-@app.route('/blog')
-def blog():
-    return render_template('blog.html')
+        return redirect(url_for('individual'))
 
 
 ######################### BMI ########################
 @app.route('/bmi', methods=["GET", "POST"])
 def bmi():
     if request.method == "GET":
-        return render_template('check.html')
+        return render_template('check.html', full_name = session['user_name'])
     elif request.method == "POST":
         form = request.form
         weight = form['weight']
@@ -103,21 +98,26 @@ def bmi():
                 bmi_type = bmi_type
             )
             new_body.save()
-            
+            new_body.reload()
+            # videos = Video.objects()
+            # cardios = Cardio.objects()
+
             current_user = User.objects.with_id(user_id)
             # current_user.update(add_to_set__bmi_id = str(new_body.id))
             # print(new_body)
             # print(current_user)
             current_user.update(push__bmi_id = new_body)
-            return render_template ('individual.html', all_body = current_user.bmi_id, full_name = session['user_name'])
+            return render_template ('individual.html', all_body = current_user.bmi_id, full_name = session['user_name'], user_id = session['user_id'])
             # return "sadasd"
         else:
+            videos = Video.objects()
+            cardios = Cardio.objects()
             if bmi < 18.5:
-                return render_template('underweight.html', bmi = bmi) 
+                return render_template('underweight.html', bmi = bmi, videos=videos, cardios=cardios, full_name = session['user_name']) 
             elif 18.5 <= bmi < 25:
-                return render_template('normal.html', bmi = bmi)
+                return render_template('normal.html', bmi = bmi, videos=videos, cardios=cardios, full_name = session['user_name'])
             elif 25 <= bmi:
-                return render_template('overweight.html', bmi = bmi)
+                return render_template('overweight.html', bmi = bmi, videos=videos, cardios=cardios, full_name = session['user_name'])
 
 ############################ LOG-OUT #####################
 @app.route('/logout')
@@ -131,7 +131,9 @@ def log_out():
 @app.route('/individual/<user_id>')
 def individual(user_id):
     if "logged_in" in session:
-        all_body = Body.objects(user_id = user_id)
+        user_id = session["user_id"]
+        user = User.objects.with_id(user_id)
+        all_body = user.bmi_id
         return render_template('individual.html', all_body = all_body, full_name = session['user_name'])
     else:
         return redirect(url_for('login'))
@@ -139,11 +141,58 @@ def individual(user_id):
 ######################### MENU ###############################
 @app.route('/menu')
 def menu():
-    return render_template('menu1.html')
+    return render_template('menu1.html',full_name = session['user_name'])
+
+@app.route('/menu-under')
+def menu_under():
+    return render_template('menu2.html',full_name = session['user_name'])
+
+@app.route('/menu-under1')
+def menu_under1():
+    return render_template('menu3.html',full_name = session['user_name'])
+
 
 @app.route('/detox')
 def detox():
-    return render_template('detox1.html')
+    return render_template('detox1.html',full_name = session['user_name'])
+
+############################## app thêm video
+@app.route('/video', methods=['GET', 'POST'])
+def video():
+    if request.method == 'GET':
+        videos = Video.objects()
+        cardios = Cardio.objects()
+        return render_template('admin.html', cardios=cardios)
+    elif request.method == 'POST':
+        form = request.form
+        link = form['link']
+        ydl = YoutubeDL()
+        data = ydl.extract_info(link, download=False)
+
+        title = data['title']
+        thumbnail = data['thumbnail']
+        youtube_id = data['id']
+        duration = data['duration']
+
+
+        new_cardio = Cardio(
+                title= title,
+                link= link,
+                thumbnail= thumbnail,
+                youtube_id= youtube_id,
+                duration= duration
+            )
+
+        new_cardio.save()
+    
+        return redirect(url_for('video'))
+
+# detail to view video
+@app.route('/detail/<youtube_id>')
+def detail(youtube_id):
+    return render_template('detail.html', youtube_id = youtube_id) 
+
+
 
 @app.route('/detox-underweight')
 def detox_underweight():
@@ -162,11 +211,11 @@ def getlean(bmi_id):
         # print(get_body)
         # bmi = Body.objects.order_by('-user_id').first()
         if body.bmi < 18.5:
-            return render_template('underweight2.html', full_name = user.fname, user_id = user.id, bmi = body.bmi) 
+            return render_template('underweight.html', full_name = user.fname, user_id = user.id, bmi = body.bmi) 
         elif 18.5 <= body.bmi < 25:
-            return render_template('normal2.html', full_name = user.fname, user_id = user.id, bmi = body.bmi)
+            return render_template('normal.html', full_name = user.fname, user_id = user.id, bmi = body.bmi)
         else:
-            return render_template('overweight2.html', full_name = user.fname, user_id = user.id, bmi = body.bmi)
+            return render_template('overweight.html', full_name = user.fname, user_id = user.id, bmi = body.bmi)
     else:
         return render_template(url_for('login'))
 
