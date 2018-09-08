@@ -28,13 +28,9 @@
 
   </head>
 
-  <body id="page-top">
+  <body id="page-top"> 
 
-    {%if session['logged_in'] == True %}
-      {%include 'homepage/nav.html'%}
-    {%else%}
-      {%include 'homepage/navigation.html'%}
-    {%endif%}
+    {%include 'homepage/navigation.html'%}
 
     <!-- Portfolio Grid -->
     <section class="bg-light" id="portfolio">
@@ -43,7 +39,7 @@
             <div class="col-lg-12 text-center text-warning">
                 <h2 class="section-heading text-uppercase">chỉ số BMI : {{bmi}}</h2>
                 <h3 class="section-subheading text-muted">Dựa vào chỉ số BMI cho thấy bạn đang bị <strong>thừa cân.</strong> 
-                  Tuy nhiên, tình trạng chưa quá trầm trọng nên bạn có thể tìm ngay các phương pháp giảm cân hiệu quả tự nhiên và kết hợp luyện tập. Nếu áp dụng điều độ và kiên trì, chỉ cần tốn khoảng vài tháng là bạn có ngay vóc dáng rất ưng ý rồi đó.
+                    Tuy nhiên, tình trạng chưa quá trầm trọng nên bạn có thể tìm ngay các phương pháp giảm cân hiệu quả tự nhiên và kết hợp luyện tập. Nếu áp dụng điều độ và kiên trì, chỉ cần tốn khoảng vài tháng là bạn có ngay vóc dáng rất ưng ý rồi đó.
                 </h3>
             </div>
               <hr>
@@ -107,7 +103,7 @@
                   <i class="fas fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="../static/image/detox2.jpg" alt="">
+              <img class="img-fluid" src="../static/image/detox2.jpg" alt="" style="height:245px;">
             </a>
             <div class="portfolio-caption">
               <h4>Detox</h4>
@@ -121,7 +117,7 @@
                   <i class="fas fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="../static/image/detox3.jpg" style="height:240px; width: 350px;" alt="">
+              <img class="img-fluid" src="../static/image/detox3.jpg" alt="">
             </a>
             <div class="portfolio-caption">
               <h4>Detox</h4>
@@ -135,23 +131,22 @@
                   <i class="fas fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="../static/image/detox5.jpg" style="height: 240px;" alt="">
+              <img class="img-fluid" src="../static/image/detox5.jpg" alt="" style="height:245px;">
             </a>
             <div class="portfolio-caption">
               <h4>Detox</h4>
-              <p class="text-muted">Làm đẹp da</p>
+              <p class="text-muted">Giảm cân và làm đẹp da</p>
             </div>
           </div>
         </div>
       </div>
 
       <!-- chế độ tập -->
-      <div class="col-lg-12 text-center my-5 ">
+      <div class="col-lg-12 text-center my-5">
           <h2 class="section-heading text-uppercase">Chế độ tập luyện</h2>
           <h3 class="section-subheading text-muted">Ngoài việc có chế độ ăn khoa học, bạn cần phải có chế độ tập luyện phù hợp để đạt hiệu quả cao.
             <br>Một số gợi ý về bài tập cho người giảm cân
           </h3>
-
           <h4 class="text-center font-lobster my-3">Aerobic</h4>
           {%for video in videos %}
           <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
@@ -178,7 +173,7 @@
           {% endfor %}
       </div>
 
-     
+          <!-- thêm video tại đây -->
     </section>
 
     <!-- Portfolio Modals -->
@@ -206,6 +201,7 @@
                       Thực đơn eat clean cho bạn
                     </a>
                   </p>
+                  
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
                     Close </button>
@@ -236,7 +232,7 @@
                   <img class="img-fluid d-block mx-auto" src="../static/image/img2.jpg" alt="">
                   <p>Nếu bạn đang muốn ăn lành mạnh để giảm cân nhưng không biết có những thực đơn ăn kiêng nào, có thể nấu thay đổi món ăn như thế nào để đánh bay mỡ bụng... 
                       thì đây chính là giải pháp dành cho bạn.
-                      <a target="_blank" href="{{url_for('menu')}}">
+                      <a target="_blank" href="http://kenh14.vn/39-thuc-don-an-kieng-eat-clean-giup-danh-bay-mo-bung-chao-he-hieu-qua-20180414121255283.chn">
                         Thực đơn eat clean cho bạn
                       </a></p>
                   
@@ -268,11 +264,11 @@
                   <h2 class="text-uppercase">Eat clean</h2>
                   <p class="item-intro text-muted">Chế độ ăn eat clean cho cơ thể khỏe mạnh và chống lão hóa.</p>
                   <img class="img-fluid d-block mx-auto" src="../static/image/img3.jpg" alt="">
-                  <p>Nếu bạn đang muốn ăn lành mạnh để giảm cân nhưng không biết có những thực đơn ăn kiêng nào, có thể nấu thay đổi món ăn như thế nào để đánh bay mỡ bụng...</p> 
+                  <p>Nếu bạn đang muốn ăn lành mạnh để giảm cân nhưng không biết có những thực đơn ăn kiêng nào, có thể nấu thay đổi món ăn như thế nào để đánh bay mỡ bụng... 
                       thì đây chính là giải pháp dành cho bạn.
                       <a target="_blank" href="https://beleza.vn/kieng-giam-can-theo-cong-thuc-eat-clean-cua-hana-giang-anh">
                         Ăn kiêng giảm cân theo công thức eat clean
-                      </a>
+                      </a></p>
                   
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
@@ -363,7 +359,7 @@
                   <!-- Project Details Go Here -->
                   <h2 class="text-uppercase">Detox</h2>
                   <p class="item-intro text-muted">Thanh lọc cơ thể từ bên trong</p>
-                  <img class="img-fluid d-block mx-auto" src="../static/image/detox5.jpg" alt="">
+                  <img class="img-fluid d-block mx-auto" src="../static/image/detox5.jpg" alt="" >
                   <p>Detox chống lão hóa và có tác dụng làm đẹp da tự nhiên</p>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
@@ -376,8 +372,13 @@
       </div>
     </div>
 
-   
-    <!--Để hiện lên thì phải chỉnh ở dưới  -->
+
+    
+    
+    
+
+
+
 
 
 
