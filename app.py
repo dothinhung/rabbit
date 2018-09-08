@@ -31,8 +31,8 @@ def login():
         password = form['password']
         users = User.objects(uname__exact=uname, password__exact=password)
         if len(users) == 0:
-
-            return "Sai usename or password"
+            error = 'Wrong password! Please try again!'
+            return render_template('login.html', error=error)
         else:
             user_id = str(users[0].id)
             full_name = str(users[0].fname)
@@ -75,7 +75,10 @@ def sign_up():
 @app.route('/bmi', methods=["GET", "POST"])
 def bmi():
     if request.method == "GET":
-        return render_template('check.html', full_name = session['user_name'])
+        if 'user_name' not in session:
+            return redirect(url_for('login'))
+        else:
+            return render_template('check.html', full_name = session['user_name'])
     elif request.method == "POST":
         form = request.form
         weight = form['weight']
@@ -111,7 +114,7 @@ def bmi():
             # print(new_body)
             # print(current_user)
             current_user.update(push__bmi_id = new_body)
-            # return render_template ('individual.html', all_body = current_user.bmi_id, full_name = session['user_name'], user_id = user_id)
+            # return render_template ('individual.html', all_body = current_user.bmi_id, full_name = session['user_name'], user_id = session['user_id'])
             # return "sadasd"
             return redirect(url_for('individual'))
         else:
