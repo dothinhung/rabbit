@@ -59,7 +59,8 @@ def sign_up():
             fname = fname,
             email = email,
             uname = uname,
-            password = password
+            password = password,
+            bmi_id = []
         )
 
         new_user.save()
@@ -99,6 +100,7 @@ def bmi():
             )
             new_body.save()
             
+<<<<<<< HEAD
             # videos = Video.objects()
             # cardios = Cardio.objects()
 
@@ -109,19 +111,37 @@ def bmi():
             current_user.update(push__bmi_id = new_body)
             return render_template ('individual.html', all_body = current_user.bmi_id, full_name = session['user_name'])
             # return "sadasd"
+=======
+            current_user = User.objects.with_id(user_id)
+            # current_user.update(add_to_set__bmi_id = str(new_body.id))
+            print(new_body)
+            print(current_user)
+            current_user.update(push__bmi_id = new_body)
+            return render_template ('individual.html', all_body = current_user.bmi_id, full_name = session['user_name'])
+            return "sadasd"
+>>>>>>> 93ba622f72a6fadd30ad6f18a0df7cb8a7295d67
         else:
             videos = Video.objects()
             cardios = Cardio.objects()
             if bmi < 18.5:
+<<<<<<< HEAD
                 return render_template('underweight.html', bmi = bmi, videos=videos, cardios=cardios, full_name = session['user_name']) 
             elif 18.5 <= bmi < 25:
                 return render_template('normal.html', bmi = bmi, videos=videos, cardios=cardios, full_name = session['user_name'])
             elif 25 <= bmi:
                 return render_template('overweight.html', bmi = bmi, videos=videos, cardios=cardios, full_name = session['user_name'])
+=======
+                return render_template('underweight.html', bmi = bmi) 
+            elif 18.5 <= bmi < 25:
+                return render_template('normal.html', bmi = bmi)
+            elif 25 <= bmi:
+                return render_template('overweight.html', bmi = bmi)
+>>>>>>> 93ba622f72a6fadd30ad6f18a0df7cb8a7295d67
 
 ############################ LOG-OUT #####################
 @app.route('/logout')
 def log_out():
+<<<<<<< HEAD
     del session['logged_in']
     return redirect(url_for('index'))
 
@@ -134,6 +154,19 @@ def individual():
             return render_template('individual.html')
         else:
             return redirect(url_for('login'))
+=======
+    if 'logged_in' in session:
+        del session['logged_in']
+        return redirect(url_for('index'))
+    else:
+        return "Bạn chưa đăng nhập"
+
+@app.route('/individual/<user_id>')
+def individual(user_id):
+    if "logged_in" in session:
+        all_body = Body.objects(user_id = user_id)
+        return render_template('individual.html', all_body = all_body, full_name = session['user_name'])
+>>>>>>> 93ba622f72a6fadd30ad6f18a0df7cb8a7295d67
     else:
         return redirect(url_for('login'))
 
@@ -191,6 +224,35 @@ def video():
 def detail(youtube_id):
     return render_template('detail.html', youtube_id = youtube_id) 
 
+
+<<<<<<< HEAD
+
+=======
+@app.route('/detox-underweight')
+def detox_underweight():
+    return render_template('detox2.html')
+
+@app.route('/getlean/<bmi_id>')
+def getlean(bmi_id):
+    if "logged_in" in session:
+        # bmi = session['user_bmi']
+        body = Body.objects.with_id(bmi_id)
+        
+        user = User.objects.with_id(session['user_id'])
+        # user_id = session['user_id']
+        # print(user_id)
+        # get_body = Body.objects(user_id = user_id)
+        # print(get_body)
+        # bmi = Body.objects.order_by('-user_id').first()
+        if body.bmi < 18.5:
+            return render_template('underweight2.html', full_name = user.fname, user_id = user.id, bmi = body.bmi) 
+        elif 18.5 <= body.bmi < 25:
+            return render_template('normal2.html', full_name = user.fname, user_id = user.id, bmi = body.bmi)
+        else:
+            return render_template('overweight2.html', full_name = user.fname, user_id = user.id, bmi = body.bmi)
+    else:
+        return render_template(url_for('login'))
+>>>>>>> 93ba622f72a6fadd30ad6f18a0df7cb8a7295d67
 
 
 
