@@ -1,117 +1,110 @@
-<link href="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/css/bootstrap.min.css" rel="stylesheet" id="bootstrap-css">
-<script src="//maxcdn.bootstrapcdn.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
-<script src="//code.jquery.com/jquery-1.11.1.min.js"></script>
-
 <!DOCTYPE html>
 <html lang="en">
-    <head> 
-		<meta name="viewport" content="width=device-width, initial-scale=1">
-		<!--CSS style -->
-		<link href="css/bootstrap.min.css" rel="stylesheet">
-		<!--Font style -->
-	    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
-		<link rel="stylesheet" href="style.css">
-		<!-- Google Fonts -->
-		<link href='https://fonts.googleapis.com/css?family=Passion+One' rel='stylesheet' type='text/css'>
-		<link href='https://fonts.googleapis.com/css?family=Oxygen' rel='stylesheet' type='text/css'>
-		<title>Sign-up</title>
-	</head>
-	<body>
-        <div class="container">
-            <div class="row d-flex justify-content-center">
-                <div class="col-md-4"></div>
+<head>
+	<title>Sign-Up</title>
+	<meta charset="UTF-8">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+<!--===============================================================================================-->	
+	<link rel="icon" type="image/png" href="../static/images/icons/favicon.ico"/>
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendors/bootstrap/css/bootstrap.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/fonts/font-awesome-4.7.0/css/font-awesome.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/fonts/Linearicons-Free-v1.0.0/icon-font.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendors/animate/animate.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../static/vendors/css-hamburgers/hamburgers.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendors/animsition/css/animsition.min.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/vendors/select2/select2.min.css">
+<!--===============================================================================================-->	
+	<link rel="stylesheet" type="text/css" href="../static/vendors/daterangepicker/daterangepicker.css">
+<!--===============================================================================================-->
+	<link rel="stylesheet" type="text/css" href="../static/csss/util.css">
+	<link rel="stylesheet" type="text/css" href="../static/csss/main.css">
+<!--===============================================================================================-->
+</head>
+<body>
 
-                <!-- content sign-up -->
-                <div class="col-md-4 bg-success">
-                    <div class="row main d-flex justify-content-center">
-                        <div class="main-login main-center">
-                            <h3 class="text-center" style="font-weight:bold;">SIGN-UP</h3>
+	<div class="limiter">
+		<div class="container-login100">
+			<div class="wrap-login100">
+				<div class="login100-form-title" style="background-image: url(../static/images/bg-01.jpg);">
+					<span class="login100-form-title-1">
+						Sign-Up
+					</span>
+				</div>
 
-                            <form method="post" action="#">
-                                <div class="form-group">
-                                    <label for="name" class="cols-sm-2 control-label">Full Name</label>
-                                    <div class="cols-sm-8">
-                                        <form method="post">
-                                        <div class="input-group d-flex justify-content-around">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-user fa" aria-hidden="true"></i>
-                                            </span>
-                                            <input type="text" class="form-control" name="fname" id="name"  placeholder="Enter your Name" size="20" required/>
-                                        </div>
-                                    </div>
-                                </div>
-                        
-                                <div class="form-group">
-                                    <label for="email" class="cols-sm-2 control-label">Your Email</label>
-                                    <div class="cols-sm-10">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-envelope fa" aria-hidden="true"></i>
-                                            </span>
-                                            <input type="email" class="form-control" name="email" id="email"  placeholder="Enter your Email" required/>
-                                        </div>
-                                    </div>
-                                </div>
+				<form method="post" action="#" class="login100-form validate-form">
+                    <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                        <span class="label-input100">Full Name</span>
+                        <input class="input100" type="text" name="fname" id="name" placeholder="Enter full name">
+                        <span class="focus-input100"></span>
+                    </div>
+
+                    <div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+                        <span class="label-input100">Your Email</span>
+                        <input class="input100" type="email" name="email" id="email" placeholder="Enter email">
+                        <span class="focus-input100"></span>
+                    </div>
+
+					<div class="wrap-input100 validate-input m-b-26" data-validate="Username is required">
+						<span class="label-input100">Username</span>
+						<input class="input100" type="text" name="uname" id="username" placeholder="Enter username">
+						<span class="focus-input100"></span>
+					</div>
+
+					<div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+						<span class="label-input100">Password</span>
+						<input class="input100" type="password" name="password" id="password" placeholder="Enter password">
+						<span class="focus-input100"></span>
+                    </div>
                     
-                                <div class="form-group">
-                                    <label for="username" class="cols-sm-2 control-label">Username</label>
-                                    <div class="cols-sm-10">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-users fa" aria-hidden="true"></i>
-                                            </span>
-                                            <input type="text" class="form-control" name="uname" id="username"  placeholder="Enter your Username" required/>
-                                        </div>
-                                    </div>
-                                </div>
-                    
-                                <div class="form-group">
-                                    <label for="password" class="cols-sm-2 control-label">Password</label>
-                                    <div class="cols-sm-10">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
-                                            </span>
-                                            <input type="password" class="form-control" name="password" id="password"  placeholder="Enter your Password" minlength="6" required/>
-                                        </div>
-                                    </div>
-                                </div>
+                    <div class="wrap-input100 validate-input m-b-18" data-validate = "Password is required">
+                        <span class="label-input100">Confirm Password</span>
+                        <input class="input100" type="password" name="password" id="password" placeholder="Enter confirm password">
+                        <span class="focus-input100"></span>
+                    </div>
 
-                                <div class="form-group">
-                                    <label for="password" class="cols-sm-2 control-label">Confirm Password</label>
-                                    <div class="cols-sm-10">
-                                        <div class="input-group">
-                                            <span class="input-group-addon">
-                                                <i class="fa fa-lock fa-lg" aria-hidden="true"></i>
-                                            </span>
-                                            <input type="password" class="form-control" name="password" id="password"  placeholder="Confirm your password" minlength="6" required/>
-                                        </div>
-                                    </div>
-                                </div>
-                
-                                <div class="form-group">
-                                    <div class="container">
-                                        <div class="row">
-                                            <div class="col-sm-2">
-                                                <input type="submit" value="Create Account" class="btn btn-primary btn-lg btn-block login-button" >
-                                            </div>
-                                    <div class="col-sm-2">
-                                            <a href="{{url_for('index')}}" type="button" id="button" class="btn btn-danger btn-lg btn-block login-button">Cancel</a>
-                                    </div>
-                                </div>
+					<div class="container-login100-form-btn">
+                        <div class="flex-sb-m w-full p-b-30">
+                            <div class="contact100-form-checkbox">
+                                <button type="submit" class="login100-form-btn">
+                                    Create Account
+                                </button>
+                            </div>
+    
+                            <div>
+                                <button class="login100-form-btn btn-primary"> 
+                                        <a href="{{url_for('index')}}" id="button">Cancel</a>
+                                </button>
                             </div>
                         </div>
-                    </form>
-                </div>
-            </div>
-        </div>
+					</div>
+				</form>
+			</div>
+		</div>
+	</div>
+	
+<!--===============================================================================================-->
+	<script src="../static/vendors/jquery/jquery-3.2.1.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendors/animsition/js/animsition.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendors/bootstrap/js/popper.js"></script>
+	<script src="../static/vendors/bootstrap/js/bootstrap.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendors/select2/select2.min.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendors/daterangepicker/moment.min.js"></script>
+	<script src="../static/vendors/daterangepicker/daterangepicker.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/vendors/countdowntime/countdowntime.js"></script>
+<!--===============================================================================================-->
+	<script src="../static/jss/main.js"></script>
 
-        <div class="col-md-4"></div>
- 
-        <!-- jQuery (necessary for Bootstrap's JavaScript plugins) -->
-        <script src="https://ajax.googleapis.com/ajax/libs/jquery/1.12.4/jquery.min.js"></script>
-        <!-- Include all compiled plugins (below), or include individual files as needed -->
-        <script src="js/bootstrap.min.js"></script>
-        
-    </body>
+</body>
 </html>
