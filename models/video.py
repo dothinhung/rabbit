@@ -14,3 +14,10 @@ class Cardio(Document):
     youtube_id = StringField()
     duration = IntField()
 
+class Cardio_under(Document):
+    title = StringField()
+    link = StringField()
+    thumbnail = StringField()
+    youtube_id = StringField()
+    duration = IntField()
+

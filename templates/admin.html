@@ -29,19 +29,18 @@
         </thead>
 
         <tbody>
-            {% for cardio in cardios %}
+            {% for cardios in cardios_under %}
                 <tr>
                     <td>{{loop.index}}</td>
-                    <td>{{cardio.title}}</td>
-                    <td>{{cardio.views}}</td>
+                    <td>{{cardios.title}}</td>
+                    <td>{{cardios.views}}</td>
                     <td>
-                        <a href="{{cardio.link}}" target="_blank">Views</a>       
+                        <a href="{{cardios.link}}" target="_blank">Views</a>       
                     </td>
                     <td>
-                        <img src="{{cardio.thumbnail}}" alt="" width="200px" height="130px">   
+                        <img src="{{cardios.thumbnail}}" alt="" width="200px" height="130px">   
                     </td>
-                    <td>{{cardio.duration}}</td>
-                    <td>{{cardio.timestamp}}</td>
+                    <td>{{cardios.duration}}</td>
                 </tr>
             {% endfor %}
         </tbody>
