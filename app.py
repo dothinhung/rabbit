@@ -65,7 +65,7 @@ def sign_up():
 
         new_user.save()
         # sẽ cho redirect vào trang chủ luôn
-        return redirect(url_for('individual'))
+        return redirect(url_for('login'))
 
 
 ######################### BMI ########################

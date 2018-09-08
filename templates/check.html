@@ -47,7 +47,7 @@
                 <br>
             </div>
         </div>
-    </form>
+    <!-- </form> -->
     <div class="container">
         <div class="row clearfix">
                 <table class="table tinhbmi">
@@ -78,22 +78,30 @@
                             <tr>
                                 <td class="gay" style="padding: 10px 80px 10px 100px;">
                                     <div class="bmi11 bmi ">
-                                        <button type="button" class="btn btn-primary btn-lg">Gầy</button>
+                                        <a href="">
+                                            <button type="submit" class="btn btn-primary btn-lg" >Gầy</button>
+                                        </a>
                                     </div>
                                 </td>
                                 <td class="chuanroi" style="padding: 10px 80px 10px 100px;">
                                     <div class="bmi1 bmi">
-                                    <button type="button" class="btn btn-info btn-lg">Chuẩn</button>
+                                        <a href="">
+                                       <button type="submit" class="btn btn-info btn-lg">Chuẩn</button>
+                                        </a>
                                     </div>
                                 </td>
                                 <td class="chuanroi" style="padding: 10px 80px 10px 100px;">
                                     <div class="bmi2 bmi">
-                                        <button type="button" class="btn btn-success btn-lg">Hơi béo</button>
+                                        <a href="">
+                                            <button type="submit" class="btn btn-success btn-lg">Hơi béo</button>
+                                        </a>
                                     </div>
                                 </td>
                                 <td class="chuanroi" style="padding: 10px 80px 10px 100px;">
                                     <div class="bmi3 bmi">
-                                        <button type="button" class="btn btn-danger btn-lg">Béo quá</button>
+                                        <a href="">
+                                            <button type="submit" class="btn btn-danger btn-lg">Béo quá</button>
+                                        </a>
                                     </div>
                                 </td>
                             </tr>
@@ -101,6 +109,7 @@
                     </table>           
                 </div>
     </div>
+    </form>
 
     <script>
         $("#tinh").click(function(){
@@ -113,6 +122,7 @@
             if(bmi < 18.5){
                 $(".gay img , .bmi11").attr({
                     style: "opacity:1"
+                    
                 });
                 $(" .chuanroi img , .bmi1 , .hoimap img , .bmi2, .beoqua img, bmi3 ").attr({
                     style:"opacity:0.2"
