@@ -34,10 +34,10 @@
             <div class="container">
                 <div class="row d-flex justify-content-center">
                     <div class="col-sm-2">
-                        <input type="submit" value="Tính BMI" id="tinh" class="btn btn-success btn-lg btn-block login-button">
+                        <input type="button" style="visibility: visible;" value="Tính BMI" id="tinh" class="btn btn-success btn-lg btn-block login-button">
                     </div>
                     <div class="col-sm-2">
-                        <input type="reset" value="Nhập lại" class="btn btn-danger btn-lg btn-block login-button">
+                        <input type="reset" style="visibility: visible;" value="Nhập lại" class="btn btn-danger btn-lg btn-block login-button">
                     </div>
                 </div>
                 <br>
@@ -79,7 +79,7 @@
                                 </td>
                                 <td class="chuanroi" style="padding: 10px 80px 10px 100px;">
                                     <div class="bmi1 bmi">
-                                    <button type="button" class="btn btn-info btn-lg">Chuẩn rồi</button>
+                                    <button type="button" class="btn btn-info btn-lg">Chuẩn</button>
                                     </div>
                                 </td>
                                 <td class="chuanroi" style="padding: 10px 80px 10px 100px;">
@@ -104,12 +104,13 @@
             var chieucaoM = chieucao / 100;
             var cannang = $("#cannang").val();
             var bmi = cannang / (chieucaoM * chieucaoM);
-
+            
+            
             if(bmi < 18.5){
                 $(".gay img , .bmi11").attr({
                     style: "opacity:1"
                 });
-                $(" .chuanroi img , .bmi1 , .hoimap img , .bmi2, .beoqua img, bmi3, .beoqua2 img, .bmi5 , .beoqua3 img, .bmi4").attr({
+                $(" .chuanroi img , .bmi1 , .hoimap img , .bmi2, .beoqua img, bmi3 ").attr({
                     style:"opacity:0.2"
                 });
             }
@@ -117,7 +118,7 @@
                 $(".chuanroi img, .bmi1 ").attr({
                 style: "opacity:1"
                 });
-                $(".gay img , .bmi11, .hoimap img, .bmi2, .beoqua img, .bmi3, .beoqua2 img, .bmi5,.beoqua3 img, .bmi4").attr({
+                $(".gay img , .bmi11, .hoimap img, .bmi2, .beoqua img, .bmi3").attr({
                 style: "opacity:0.2"
                 });
             }
@@ -140,6 +141,11 @@
 
             }
         });
+        
+        $(".beoqua3 img, .bmi4, .chuanroi img, .bmi1 , .hoimap img, .bmi2, .beoqua img, .bmi3, .beoqua2 img, .bmi5,.gay img , .bmi11").attr({
+                style: "opacity:0.3"
+            });
+
 
         $(".btn-danger").click(function () {
             $(".beoqua3 img, .bmi4, .chuanroi img, .bmi1 , .hoimap img, .bmi2, .beoqua img, .bmi3, .beoqua2 img, .bmi5,.gay img , .bmi11").attr({
