@@ -40,7 +40,9 @@ def login():
             session['user_name'] = full_name
             # for user in users:
             #     session['user_name'] = user['fname']
-            return redirect(url_for('index'))
+            current_user = User.objects.with_id(user_id)
+            all_body = current_user.bmi_id
+            return render_template('individual.html', user_id= user_id, all_body = all_body, full_name = session['user_name'])
 
 #################### SIGN-UP #########################
 @app.route('/sign-up', methods=["GET", "POST"])
@@ -64,7 +66,7 @@ def sign_up():
 
         new_user.save()
         # sẽ cho redirect vào trang chủ luôn
-        return redirect(url_for('individual'))
+        return redirect(url_for('login'))
 
 
 ######################### BMI ########################
@@ -132,8 +134,8 @@ def log_out():
 def individual(user_id):
     if "logged_in" in session:
         user_id = session["user_id"]
-        user = User.objects.with_id(user_id)
-        all_body = user.bmi_id
+        current_user = User.objects.with_id(user_id)
+        all_body = current_user.bmi_id
         return render_template('individual.html', all_body = all_body, full_name = session['user_name'])
     else:
         return redirect(url_for('login'))
@@ -190,7 +192,7 @@ def video():
 # detail to view video
 @app.route('/detail/<youtube_id>')
 def detail(youtube_id):
-    return render_template('detail.html', youtube_id = youtube_id) 
+    return render_template('detail.html', youtube_id = youtube_id, full_name = session['user_name']) 
 
 
 
@@ -210,12 +212,14 @@ def getlean(bmi_id):
         # get_body = Body.objects(user_id = user_id)
         # print(get_body)
         # bmi = Body.objects.order_by('-user_id').first()
+        videos = Video.objects()
+        cardios = Cardio.objects() 
         if body.bmi < 18.5:
-            return render_template('underweight.html', full_name = user.fname, user_id = user.id, bmi = body.bmi) 
+            return render_template('underweight.html', full_name = user.fname, user_id = user.id, bmi = body.bmi, videos=videos, cardios=cardios,) 
         elif 18.5 <= body.bmi < 25:
-            return render_template('normal.html', full_name = user.fname, user_id = user.id, bmi = body.bmi)
+            return render_template('normal.html', full_name = user.fname, user_id = user.id, bmi = body.bmi, videos=videos, cardios=cardios,)
         else:
-            return render_template('overweight.html', full_name = user.fname, user_id = user.id, bmi = body.bmi)
+            return render_template('overweight.html', full_name = user.fname, user_id = user.id, bmi = body.bmi, videos=videos, cardios=cardios,)
     else:
         return render_template(url_for('login'))
 

@@ -147,7 +147,32 @@
           <h3 class="section-subheading text-muted">Ngoài việc có chế độ ăn khoa học, bạn cần phải có chế độ tập luyện phù hợp để đạt hiệu quả cao.
             <br>Một số gợi ý về bài tập cho người giảm cân
           </h3>
+          <h4 class="text-center font-lobster my-3">Aerobic</h4>
+          {%for video in videos %}
+          <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
+              <a href="{{url_for('detail', youtube_id=video.youtube_id)}}">
+              <img class="card-img-top" src="{{video.thumbnail}}" alt="Card image cap" width="200px" height="130px">
+              <div class="card-body">
+                <p class="card-text">{{video.title}}</p>
+              </div>
+              </a>
+            </div>
+        {%endfor%}
+
           
+          <h4 class="text-center font-lobster my-3">Cardio</h4>
+          {% for cardio in cardios %}
+          <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
+              <a href="{{url_for('detail', youtube_id=cardio.youtube_id)}}">
+              <img class="card-img-top" src="{{cardio.thumbnail}}" alt="Card image cap" width="200px" height="130px" >
+              <div class="card-body">
+                <p class="card-text">{{cardio.title}}</p>
+              </div>
+              <span class="thumb__duration">{{cardio.durration}}</span>
+          </div>
+          {% endfor %}
+      </div>
+
           <!-- thêm video tại đây -->
     </section>
 
