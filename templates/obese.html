@@ -8,7 +8,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title>Normal</title>
+    <title>Béo phì</title>
 
     <!-- Bootstrap core CSS -->
     <!-- <link href="vendor/bootstrap/css/bootstrap.min.css" rel="stylesheet"> -->
@@ -30,11 +30,11 @@
 
   <body id="page-top"> 
 
-      {%if session['logged_in'] == True %}
+    {%if session['logged_in'] == True %}
         {%include 'homepage/nav.html'%}
-      {%else%}
+    {%else%}
         {%include 'homepage/navigation.html'%}
-      {%endif%}
+    {%endif%}
 
     <!-- Portfolio Grid -->
     <section class="bg-light" id="portfolio">
@@ -42,8 +42,9 @@
         <div class="row">
             <div class="col-lg-12 text-center text-warning">
                 <h2 class="section-heading text-uppercase" style="color:green;">chỉ số BMI : {{bmi}}</h2>
-                <h3 class="section-subheading text-muted">Dựa vào chỉ số BMI cho thấy bạn có thân hình<strong> chuẩn.</strong> <br>
-                    Tuy nhiên, để duy trì được chỉ số BMI và thân hình cân đối bạn nên tạo cho mình thói quen tập thể dục và có chéo độ ăn lành mạnh
+                <h3 class="section-subheading text-muted">Dựa vào chỉ số BMI cho thấy bạn đang bị <strong style="color:red;">Béo phì.</strong> 
+                    <br>Với mức cân nặng này, cơ thể của bạn phải gặp rất nhiều áp lực hàng ngày, đặc biệt trọng lượng mỡ tạo áp lực lên cơ xương và các cơ quan làm ảnh hưởng đến sinh hoạt và sức khỏe của bạn.
+                    Bạn cần phải có chế độ ăn và tập luyên nghiêm ngặt để giảm cân kịp thời nhằm khắc phục tình trạng cơ thể của mình tránh xảy ra những biến chứng nguy hiểm từ chứng béo phì gây nên.
                 </h3>
             </div>
               <hr>
@@ -152,6 +153,7 @@
             <br>Một số gợi ý về bài tập cho người giảm cân
           </h3>
 
+
           <h4 class="text-center font-lobster my-3">Aerobic</h4>
           {%for video in videos %}
           <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
@@ -175,49 +177,29 @@
         {%endfor%}
 
           
-         <h4 class="text-center font-lobster my-3">Yoga</h4>
-          {%for yoga in yogas %}
-          <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
-              <a href="{{url_for('detail', youtube_id=yoga.youtube_id)}}">
-                
-                <div class="d-flex justify-content-center align-items-center" style="background-image: url({{yoga.thumbnail}});
-                                                                                                  background-position: center;
-                                                                                                  background-size: cover;
-                                                                                                  width: 100%;
-                                                                                                  height: 130px;">
-                    <i class="fab fa-youtube" style="font-size: 44px;  color:red;"></i>                
-                </div>
-                
-                {#<img class="card-img-top" src="{{video.thumbnail}}" alt="Card image cap" width="200px" height="130px">#}
+        <h4 class="text-center font-lobster my-3">Cardio</h4>
+        {%for exercise in exercises %}
+        <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
+            <a href="{{url_for('detail', youtube_id=exercise.youtube_id)}}">
               
-              <div class="card-body">
-                <p class="card-text" style="color:black;">{{yoga.title}}</p>
+              <div class="d-flex justify-content-center align-items-center" style="background-image: url({{exercise.thumbnail}});
+                                                                                                background-position: center;
+                                                                                                background-size: cover;
+                                                                                                width: 100%;
+                                                                                                height: 130px;">
+                  <i class="fab fa-youtube" style="font-size: 44px;  color:red;"></i>                
               </div>
-              </a>
+              
+              {#<img class="card-img-top" src="{{exercise.thumbnail}}" alt="Card image cap" width="200px" height="130px">#}
+            
+            <div class="card-body">
+              <p class="card-text" style="color:black;">{{exercise.title}}</p>
             </div>
-        {%endfor%}
-
-          
-          <h4 class="text-center font-lobster my-3">Cardio</h4>
-          {% for underweight in underweights %}
-          <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
-              <a href="{{url_for('detail', youtube_id=underweight.youtube_id)}}">
-              {#<img class="card-img-top" src="{{underweight.thumbnail}}" alt="Card image cap" width="200px" height="130px" >#}
-              <div class="d-flex justify-content-center align-items-center" style="background-image: url({{underweight.thumbnail}});
-                                                                                                  background-position: center;
-                                                                                                  background-size: cover;
-                                                                                                  width: 100%;
-                                                                                                  height: 130px;">
-                    <i class="fab fa-youtube" style="font-size: 44px; color:red;"></i>                
-                </div>
-              <div class="card-body">
-                <p class="card-text" style="color:black;">{{underweight.title}}</p>
-              </div>
-              
+            </a>
           </div>
-          {% endfor %}
-      </div>
+      {%endfor%}
 
+      </div>
 
           <!-- thêm video tại đây -->
     </section>
@@ -278,8 +260,8 @@
                   <p>Nếu bạn đang muốn ăn lành mạnh để giảm cân nhưng không biết có những thực đơn ăn kiêng nào, có thể nấu thay đổi món ăn như thế nào để đánh bay mỡ bụng... 
                       thì đây chính là giải pháp dành cho bạn.</p>
                       <a target="_blank" href="{{url_for('menu')}}">
-                          Thực đơn eat clean cho bạn
-                        </a>
+                        Thực đơn eat clean cho bạn
+                      </a>
                   
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
@@ -311,9 +293,9 @@
                   <img class="img-fluid d-block mx-auto" src="../static/image/img3.jpg" alt="">
                   <p>Nếu bạn đang muốn ăn lành mạnh để giảm cân nhưng không biết có những thực đơn ăn kiêng nào, có thể nấu thay đổi món ăn như thế nào để đánh bay mỡ bụng... 
                       thì đây chính là giải pháp dành cho bạn.</p>
-                      <a target="_blank" href="https://beleza.vn/kieng-giam-can-theo-cong-thuc-eat-clean-cua-hana-giang-anh">
+                      <a target="_blank" href="#">
                         Ăn kiêng giảm cân theo công thức eat clean
-                      </a>
+                      </a></p>
                   
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
@@ -421,6 +403,7 @@
         </div>
       </div>
     </div>
+
 
 
     <!-- Bootstrap core JavaScript -->

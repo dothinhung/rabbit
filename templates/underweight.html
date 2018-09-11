@@ -42,7 +42,7 @@
             <div class="col-lg-12 text-center text-warning">
                 <h2 class="section-heading text-uppercase" style="color:green;">chỉ số BMI : {{bmi}}</h2>
                 <h3 class="section-subheading text-muted">Dựa vào chỉ số BMI cho thấy bạn đang bị <strong>gầy</strong>.
-                    Áp dụng các biện pháp này và bạn có thể có được cơ thể như ý nhé.
+                  <br>Bạn cần áp dụng chế độ ăn và thể thao để tăng cân.
                 </h3>
             </div>
               <hr>
@@ -148,16 +148,15 @@
       <div class="col-lg-12 text-center my-5 ">
           <h2 class="section-heading text-uppercase">Chế độ tập luyện</h2>
           <h3 class="section-subheading text-muted">Ngoài việc có chế độ ăn khoa học, bạn cần phải có chế độ tập luyện phù hợp để đạt hiệu quả cao.
-            <br>Một số gợi ý về bài tập cho người giảm cân. Nếu như bạn đã làm việc cả ngày trong văn phòng
-            thì có chạy bộ cũng là 1 lựa chọn tốt cho bạn
+            <br>Một số gợi ý về bài tập cho người tăng cân.  
           </h3>
 
-          <h4 class="text-center font-lobster my-3">Aerobic</h4>
-          {%for video in videos %}
+          <h4 class="text-center font-lobster my-3">Yoga</h4>
+          {%for yoga in yogas %}
           <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
-              <a href="{{url_for('detail', youtube_id=video.youtube_id)}}">
+              <a href="{{url_for('detail', youtube_id=yoga.youtube_id)}}">
                 
-                <div class="d-flex justify-content-center align-items-center" style="background-image: url({{video.thumbnail}});
+                <div class="d-flex justify-content-center align-items-center" style="background-image: url({{yoga.thumbnail}});
                                                                                                   background-position: center;
                                                                                                   background-size: cover;
                                                                                                   width: 100%;
@@ -168,7 +167,7 @@
                 {#<img class="card-img-top" src="{{video.thumbnail}}" alt="Card image cap" width="200px" height="130px">#}
               
               <div class="card-body">
-                <p class="card-text" style="color:black;">{{video.title}}</p>
+                <p class="card-text" style="color:black;">{{yoga.title}}</p>
               </div>
               </a>
             </div>
@@ -176,11 +175,11 @@
 
           
           <h4 class="text-center font-lobster my-3">Cardio</h4>
-          {% for cardio in cardios %}
+          {% for underweight in underweights %}
           <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
-              <a href="{{url_for('detail', youtube_id=cardio.youtube_id)}}">
-              {#<img class="card-img-top" src="{{cardio.thumbnail}}" alt="Card image cap" width="200px" height="130px" >#}
-              <div class="d-flex justify-content-center align-items-center" style="background-image: url({{cardio.thumbnail}});
+              <a href="{{url_for('detail', youtube_id=underweight.youtube_id)}}">
+              {#<img class="card-img-top" src="{{underweight.thumbnail}}" alt="Card image cap" width="200px" height="130px" >#}
+              <div class="d-flex justify-content-center align-items-center" style="background-image: url({{underweight.thumbnail}});
                                                                                                   background-position: center;
                                                                                                   background-size: cover;
                                                                                                   width: 100%;
@@ -188,11 +187,12 @@
                     <i class="fab fa-youtube" style="font-size: 44px; color:red;"></i>                
                 </div>
               <div class="card-body">
-                <p class="card-text" style="color:black;">{{cardio.title}}</p>
+                <p class="card-text" style="color:black;">{{underweight.title}}</p>
               </div>
-              <span class="thumb__duration">{{cardio.durration}}</span>
+              
           </div>
           {% endfor %}
+          
       </div>
 
     </section>
@@ -213,7 +213,7 @@
             <div class="row">
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
-                    <h2 class="text-uppercase">Chế độ tăng cân kết hợp giữa chất đạm, chất béo và tinh bột</h2>
+                    <h2 class="text-uppercase" style="color:black;">Chế độ tăng cân kết hợp giữa chất đạm, chất béo và tinh bột</h2>
                   <img class="img-fluid d-block mx-auto" src="../static/image/u1.jpg" alt="">
                       <a target="_blank" href="{{url_for('menu_under')}}">
                         Tìm hiểu về 4 chế độ ăn tăng cân

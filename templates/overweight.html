@@ -43,7 +43,7 @@
             <div class="col-lg-12 text-center text-warning">
                 <h2 class="section-heading text-uppercase" style="color:green;">chỉ số BMI : {{bmi}}</h2>
                 <h3 class="section-subheading text-muted">Dựa vào chỉ số BMI cho thấy bạn đang bị <strong>thừa cân.</strong> 
-                    Tuy nhiên, tình trạng chưa quá trầm trọng nên bạn có thể tìm ngay các phương pháp giảm cân hiệu quả tự nhiên và kết hợp luyện tập. Nếu áp dụng điều độ và kiên trì, chỉ cần tốn khoảng vài tháng là bạn có ngay vóc dáng rất ưng ý rồi đó.
+                   <br> Tuy nhiên, tình trạng chưa quá trầm trọng nên bạn có thể tìm ngay các phương pháp giảm cân hiệu quả tự nhiên và kết hợp luyện tập.<br> Nếu áp dụng điều độ và kiên trì, chỉ cần tốn khoảng vài tháng là bạn có ngay vóc dáng rất ưng ý rồi đó.
                 </h3>
             </div>
               <hr>
@@ -149,8 +149,10 @@
       <div class="col-lg-12 text-center my-5">
           <h2 class="section-heading text-uppercase">Chế độ tập luyện</h2>
           <h3 class="section-subheading text-muted">Ngoài việc có chế độ ăn khoa học, bạn cần phải có chế độ tập luyện phù hợp để đạt hiệu quả cao.
-            <br>Một số gợi ý về bài tập cho người giảm cân
+            <br>Một số gợi ý về bài tập cho người giảm cân. Các bài tập có thời gian dài và cường độ mạnh là sự lựa chọn tốt nhất cho người muốn giảm cân 
           </h3>
+
+
           <h4 class="text-center font-lobster my-3">Aerobic</h4>
           {%for video in videos %}
           <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
@@ -174,30 +176,30 @@
         {%endfor%}
 
           
-          <h4 class="text-center font-lobster my-3">Cardio</h4>
-          {% for cardio in cardios %}
-          <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
-              <a href="{{url_for('detail', youtube_id=cardio.youtube_id)}}">
-              {#<img class="card-img-top" src="{{cardio.thumbnail}}" alt="Card image cap" width="200px" height="130px" >#}
-              <div class="d-flex justify-content-center align-items-center" style="background-image: url({{cardio.thumbnail}});
-                                                                                                  background-position: center;
-                                                                                                  background-size: cover;
-                                                                                                  width: 100%;
-                                                                                                  height: 130px;">
-                    <i class="fab fa-youtube" style="font-size: 44px; color:red;"></i>                
-                </div>
-              <div class="card-body">
-                <p class="card-text" style="color:black;">{{cardio.title}}</p>
+        <h4 class="text-center font-lobster my-3">Cardio</h4>
+        {%for exercise in exercises %}
+        <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
+            <a href="{{url_for('detail', youtube_id=exercise.youtube_id)}}">
+              
+              <div class="d-flex justify-content-center align-items-center" style="background-image: url({{exercise.thumbnail}});
+                                                                                                background-position: center;
+                                                                                                background-size: cover;
+                                                                                                width: 100%;
+                                                                                                height: 130px;">
+                  <i class="fab fa-youtube" style="font-size: 44px;  color:red;"></i>                
               </div>
-              <span class="thumb__duration">{{cardio.durration}}</span>
+              
+              {#<img class="card-img-top" src="{{exercise.thumbnail}}" alt="Card image cap" width="200px" height="130px">#}
+            
+            <div class="card-body">
+              <p class="card-text" style="color:black;">{{exercise.title}}</p>
+            </div>
+            </a>
           </div>
-          {% endfor %}
+      {%endfor%}
+
       </div>
 
-<<<<<<< HEAD
-
-=======
->>>>>>> a413af8b2f7be375ac9049a705cc82308cfb87c5
           <!-- thêm video tại đây -->
     </section>
 
@@ -217,20 +219,15 @@
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Eat clean</h2>
+                  <h2 class="text-uppercase" style="color:black;">Eat clean</h2>
                   <p class="item-intro text-muted">Chế độ ăn eat clean cho cơ thể khỏe mạnh và chống lão hóa</p>
                   <img class="img-fluid d-block mx-auto" src="../static/image/img5.jpg" alt="">
-                  <p>Nếu bạn đang muốn ăn lành mạnh để giảm cân nhưng không biết có những thực đơn ăn kiêng nào,
+                  <p style="color:black;">Nếu bạn đang muốn ăn lành mạnh để giảm cân nhưng không biết có những thực đơn ăn kiêng nào,
                      có thể nấu thay đổi món ăn như thế nào để đánh bay mỡ bụng... 
                     thì đây chính là giải pháp dành cho bạn.</p>
                     <a target="_blank" href="{{url_for('menu')}}">
                       Thực đơn eat clean cho bạn
-                    </a>
-<<<<<<< HEAD
-=======
-                  </p>
-                  
->>>>>>> a413af8b2f7be375ac9049a705cc82308cfb87c5
+                    </a><br>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
                     Close </button>
@@ -260,12 +257,8 @@
                   <p class="item-intro text-muted">Chế độ ăn eat clean cho cơ thể khỏe mạnh và chống lão hóa.</p>
                   <img class="img-fluid d-block mx-auto" src="../static/image/img2.jpg" alt="">
                   <p>Nếu bạn đang muốn ăn lành mạnh để giảm cân nhưng không biết có những thực đơn ăn kiêng nào, có thể nấu thay đổi món ăn như thế nào để đánh bay mỡ bụng... 
-<<<<<<< HEAD
                       thì đây chính là giải pháp dành cho bạn.</p>
-=======
-                      thì đây chính là giải pháp dành cho bạn.
->>>>>>> a413af8b2f7be375ac9049a705cc82308cfb87c5
-                      <a target="_blank" href="http://kenh14.vn/39-thuc-don-an-kieng-eat-clean-giup-danh-bay-mo-bung-chao-he-hieu-qua-20180414121255283.chn">
+                      <a target="_blank" href="{{url_for('menu')}}">
                         Thực đơn eat clean cho bạn
                       </a>
                   
@@ -298,12 +291,8 @@
                   <p class="item-intro text-muted">Chế độ ăn eat clean cho cơ thể khỏe mạnh và chống lão hóa.</p>
                   <img class="img-fluid d-block mx-auto" src="../static/image/img3.jpg" alt="">
                   <p>Nếu bạn đang muốn ăn lành mạnh để giảm cân nhưng không biết có những thực đơn ăn kiêng nào, có thể nấu thay đổi món ăn như thế nào để đánh bay mỡ bụng... 
-<<<<<<< HEAD
                       thì đây chính là giải pháp dành cho bạn.</p>
-=======
-                      thì đây chính là giải pháp dành cho bạn.
->>>>>>> a413af8b2f7be375ac9049a705cc82308cfb87c5
-                      <a target="_blank" href="https://beleza.vn/kieng-giam-can-theo-cong-thuc-eat-clean-cua-hana-giang-anh">
+                      <a target="_blank" href="#">
                         Ăn kiêng giảm cân theo công thức eat clean
                       </a></p>
                   
@@ -413,15 +402,6 @@
         </div>
       </div>
     </div>
-
-
-    
-    
-    
-
-
-
-
 
 
 

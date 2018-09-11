@@ -24,23 +24,23 @@
             <th>Views</th>
             <th>Link</th>
             <th>Thumbnail</th>
-            <th>Time</th>
-            <th>Min</th>
+            <!-- <th>Time</th> -->
+            <!-- <th>Min</th> -->
         </thead>
 
         <tbody>
-            {% for cardios in cardios_under %}
+            {% for exercise in exercises %}
                 <tr>
                     <td>{{loop.index}}</td>
-                    <td>{{cardios.title}}</td>
-                    <td>{{cardios.views}}</td>
+                    <td>{{exercise.title}}</td>
+                    <td>{{exercise.views}}</td>
                     <td>
-                        <a href="{{cardios.link}}" target="_blank">Views</a>       
+                        <a href="{{exercise.link}}" target="_blank">Views</a>       
                     </td>
                     <td>
-                        <img src="{{cardios.thumbnail}}" alt="" width="200px" height="130px">   
+                        <img src="{{exercise.thumbnail}}" alt="" width="200px" height="130px">   
                     </td>
-                    <td>{{cardios.duration}}</td>
+                   {#<td>{{exercise.duration}}</td>#}
                 </tr>
             {% endfor %}
         </tbody>

@@ -3,13 +3,15 @@ import mongoengine
 # mongodb://admin:admin123@ds243049.mlab.com:43049/muadongkhonglanh-c4e19
 # mongodb://adminc4e19:adminc4e19@ds243049.mlab.com:43049/muadongkhonglanh-c4e19
 # mongodb://<dbuser>:<dbpassword>@ds125272.mlab.com:25272/project-c4e19
+# client = MongoClient("mongodb://user_name:user_password@SERVER_IP/prod-db")
+# db = client['prod-db']
 
 
 host = "ds125272.mlab.com"
 port = 25272
 db_name = "project-c4e19"
-user_name = "car_under"
-password = "cardio123"
+user_name = "exercise1"
+password = "exercise1"
 
 
 def connect():

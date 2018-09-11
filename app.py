@@ -1,7 +1,7 @@
 from flask import *
 import mlab
 from models.user import Body, User
-from models.video import Video,Cardio, Cardio_under
+from models.video import Video, Underweight, Yoga, Cardio, Exercise
 from youtube_dl import YoutubeDL 
 import datetime
 
@@ -120,12 +120,19 @@ def bmi():
         else:
             videos = Video.objects()
             cardios = Cardio.objects()
+            underweights = Underweight.objects()
+            yogas = Yoga.objects()
+            exercises = Exercise.objects()
+            # overweights = Overweight.objects()
             if bmi < 18.5:
-                return render_template('underweight.html', bmi = bmi, videos=videos, cardios=cardios, full_name = session['user_name']) 
+                return render_template('underweight.html', bmi = bmi, yogas=yogas, underweights=underweights, full_name = session['user_name']) 
             elif 18.5 <= bmi < 25:
-                return render_template('normal.html', bmi = bmi, videos=videos, cardios=cardios, full_name = session['user_name'])
-            elif 25 <= bmi:
-                return render_template('overweight.html', bmi = bmi, videos=videos, cardios=cardios, full_name = session['user_name'])
+                return render_template('normal.html', bmi = bmi, videos=videos, yogas=yogas, underweights=underweights, full_name = session['user_name'])
+            elif 25 <= bmi < 30:
+                return render_template('overweight.html', bmi = bmi, videos=videos, cardios=cardios, exercises=exercises,full_name = session['user_name'])
+            elif bmi > 30:
+                return render_template('obese.html', bmi = bmi, videos=videos, cardios=cardios, exercises=exercises)
+
 
 ############################ LOG-OUT #####################
 @app.route('/logout')
@@ -170,8 +177,11 @@ def video():
     if request.method == 'GET':
         videos = Video.objects()
         cardios = Cardio.objects()
-        cardio_under = Cardio_under.objects()
-        return render_template('admin.html', cardios=cardios, cardio_under=cardio_under)
+        # overweights = Overweight.objects()
+        underweights = Underweight.objects()
+        yogas= Yoga.objects()
+        exercises = Exercise.objects()
+        return render_template('admin.html', videos=videos, cardios=cardios, underweights=underweights, yogas=yogas, exercises=exercises )
     elif request.method == 'POST':
         form = request.form
         link = form['link']
@@ -181,25 +191,25 @@ def video():
         title = data['title']
         thumbnail = data['thumbnail']
         youtube_id = data['id']
-        duration = data['duration']
+        # duration = data['duration']
 
 
-        new_cardio_under = Cardio_under(
+        new_ex = Exercise(
                 title= title,
                 link= link,
                 thumbnail= thumbnail,
-                youtube_id= youtube_id,
-                duration= duration
+                youtube_id= youtube_id
+                # duration= duration
             )
 
-        new_cardio_under.save()
+        new_ex.save()
     
         return redirect(url_for('video'))
 
 # detail to view video
 @app.route('/detail/<youtube_id>')
 def detail(youtube_id):
-    return render_template('detail.html', youtube_id = youtube_id, full_name = session['user_name']) 
+    return render_template('detail.html', youtube_id = youtube_id, full_name = session['user_name'], bmi=bmi) 
 
 
 
@@ -220,13 +230,18 @@ def getlean(bmi_id):
         # print(get_body)
         # bmi = Body.objects.order_by('-user_id').first()
         videos = Video.objects()
-        cardios = Cardio.objects() 
+        cardios = Cardio.objects()
+        yogas = Yoga.objects()
+        exercises = Exercise.objects()
+        underweights = Underweight.objects()
         if body.bmi < 18.5:
-            return render_template('underweight.html', full_name = user.fname, user_id = user.id, bmi = body.bmi, videos=videos, cardios=cardios,) 
+            return render_template('underweight.html', full_name = user.fname, user_id = user.id, bmi = body.bmi, videos=videos, cardios=cardios, yogas=yogas, underweights=underweights) 
         elif 18.5 <= body.bmi < 25:
-            return render_template('normal.html', full_name = user.fname, user_id = user.id, bmi = body.bmi, videos=videos, cardios=cardios,)
+            return render_template('normal.html', full_name = user.fname, user_id = user.id, bmi = body.bmi, videos=videos, cardios=cardios, yogas=yogas, underweights=underweights)
+        elif 25 <= body.bmi < 30: 
+            return render_template('overweight.html', full_name = user.fname, user_id = user.id, bmi = body.bmi, videos=videos, cardios=cardios, exercises=exercises)
         else:
-            return render_template('overweight.html', full_name = user.fname, user_id = user.id, bmi = body.bmi, videos=videos, cardios=cardios,)
+            return render_template('obese.html', full_name = user.fname, user_id = user.id, bmi = body.bmi, videos=videos, cardios=cardios, exercises=exercises)
     else:
         return render_template(url_for('login'))
 

@@ -10,7 +10,12 @@
     {%include 'meta-data.html'%}
 </head>
 <body>
-  {%include 'homepage/navigation.html'%}
+  
+  {%if session['logged_in'] == True %}
+    {%include 'homepage/nav.html'%}
+  {%else%}
+    {%include 'homepage/navigation.html'%}
+  {%endif%}
     <h3 class="text-center my-5 font-lobster" style="font-size:45px;">Cách làm detox giảm cân, thanh lọc cơ thể và làm đẹp da</h3>
                   <div class="card-deck mx-5">
                     <div class="card">
