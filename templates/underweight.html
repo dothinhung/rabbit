@@ -26,14 +26,15 @@
     <!-- <link href="css/agency.min.css" rel="stylesheet"> -->
     <link href="../static/css/agency.min.css" rel="stylesheet">
 
-  </head> 
+  </head>
 
-  <body id="page-top">
-    {%if session['logged_in'] == True %}
-      {%include 'homepage/nav.html'%}
-    {%else%}
-      {%include 'homepage/navigation.html'%}
-    {%endif%}
+  <body id="page-top"> 
+
+      {%if session['logged_in'] == True %}
+        {%include 'homepage/nav.html'%}
+      {%else%}
+        {%include 'homepage/navigation.html'%}
+      {%endif%}
 
     <!-- Portfolio Grid -->
     <section class="bg-light" id="portfolio">
@@ -42,8 +43,7 @@
             <div class="col-lg-12 text-center text-warning">
                 <h2 class="section-heading text-uppercase" style="color:green;">chỉ số BMI : {{bmi}}</h2>
                 <h3 class="section-subheading text-muted">Dựa vào chỉ số BMI cho thấy bạn đang bị <strong>gầy</strong>.
-                  <br>Bạn cần áp dụng chế độ ăn và thể thao để tăng cân.
-                </h3>
+                    <br>Bạn cần áp dụng chế độ ăn và thể thao để tăng cân.</h3>
             </div>
               <hr>
           <div class="col-lg-12 text-center my-3">
@@ -59,7 +59,7 @@
                   <i class="fas fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="../static/image/u1.jpg" alt="" style="height:240px;">
+              <img class="img-fluid" src="../static/image/u1.jpg" alt="">
             </a>
             <div class="portfolio-caption">
               <h4>Chế độ ăn cho người gầy</h4>
@@ -87,7 +87,7 @@
                   <i class="fas fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="../static/image/u3.jpg" alt="" style="height:240px;">
+              <img class="img-fluid" src="../static/image/u3.jpg" alt="">
             </a>
             <div class="portfolio-caption">
               <h4>Những lưu ý khi ăn chế độ ăn tăng cân</h4>
@@ -106,11 +106,11 @@
                   <i class="fas fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="../static/image/detox3.jpg" alt="">
+              <img class="img-fluid" src="../static/image/detox2.jpg" alt="" style="height:245px;">
             </a>
             <div class="portfolio-caption">
               <h4>Detox</h4>
-              <p class="text-muted">Một số công thức detox cơ bản</p>
+              <p class="text-muted">Nâng cao khả năng thải độc cơ thể</p>
             </div>
           </div>
           <div class="col-md-4 col-sm-6 portfolio-item">
@@ -120,11 +120,11 @@
                   <i class="fas fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="../static/image/detox4.jpg" style = "height:245px;" alt="">
+              <img class="img-fluid" src="../static/image/detox3.jpg" alt="">
             </a>
             <div class="portfolio-caption">
               <h4>Detox</h4>
-              <p class="text-muted">Detox là gì?</p>
+              <p class="text-muted">Thanh lọc cơ thể từ bên trong</p>
             </div>
           </div>
           <div class="col-md-4 col-sm-6 portfolio-item">
@@ -134,29 +134,30 @@
                   <i class="fas fa-plus fa-3x"></i>
                 </div>
               </div>
-              <img class="img-fluid" src="../static/image/detox6.jpg" style = "height:245px;" alt="">
+              <img class="img-fluid" src="../static/image/detox5.jpg" alt="" style="height:245px;">
             </a>
             <div class="portfolio-caption">
               <h4>Detox</h4>
-              <p class="text-muted">Làm đẹp da</p>
+              <p class="text-muted">Giảm cân và làm đẹp da</p>
             </div>
           </div>
         </div>
       </div>
 
       <!-- chế độ tập -->
-      <div class="col-lg-12 text-center my-5 ">
+      <div class="col-lg-12 text-center my-5">
           <h2 class="section-heading text-uppercase">Chế độ tập luyện</h2>
           <h3 class="section-subheading text-muted">Ngoài việc có chế độ ăn khoa học, bạn cần phải có chế độ tập luyện phù hợp để đạt hiệu quả cao.
-            <br>Một số gợi ý về bài tập cho người tăng cân.  
+            <br>Một số gợi ý về bài tập cho người giảm cân. Các bài tập có thời gian dài và cường độ mạnh là sự lựa chọn tốt nhất cho người muốn giảm cân 
           </h3>
 
-          <h4 class="text-center font-lobster my-3">Yoga</h4>
-          {%for yoga in yogas %}
+
+          <h4 class="text-center font-lobster my-3">Aerobic</h4>
+          {%for video in videos %}
           <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
-              <a href="{{url_for('detail', youtube_id=yoga.youtube_id)}}">
+              <a href="{{url_for('detail', youtube_id=video.youtube_id)}}">
                 
-                <div class="d-flex justify-content-center align-items-center" style="background-image: url({{yoga.thumbnail}});
+                <div class="d-flex justify-content-center align-items-center" style="background-image: url({{video.thumbnail}});
                                                                                                   background-position: center;
                                                                                                   background-size: cover;
                                                                                                   width: 100%;
@@ -167,34 +168,38 @@
                 {#<img class="card-img-top" src="{{video.thumbnail}}" alt="Card image cap" width="200px" height="130px">#}
               
               <div class="card-body">
-                <p class="card-text" style="color:black;">{{yoga.title}}</p>
+                <p class="card-text" style="color:black;">{{video.title}}</p>
               </div>
               </a>
             </div>
         {%endfor%}
 
           
-          <h4 class="text-center font-lobster my-3">Cardio</h4>
-          {% for underweight in underweights %}
-          <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
-              <a href="{{url_for('detail', youtube_id=underweight.youtube_id)}}">
-              {#<img class="card-img-top" src="{{underweight.thumbnail}}" alt="Card image cap" width="200px" height="130px" >#}
-              <div class="d-flex justify-content-center align-items-center" style="background-image: url({{underweight.thumbnail}});
-                                                                                                  background-position: center;
-                                                                                                  background-size: cover;
-                                                                                                  width: 100%;
-                                                                                                  height: 130px;">
-                    <i class="fab fa-youtube" style="font-size: 44px; color:red;"></i>                
-                </div>
-              <div class="card-body">
-                <p class="card-text" style="color:black;">{{underweight.title}}</p>
+        <h4 class="text-center font-lobster my-3">Cardio</h4>
+        {%for exercise in exercises %}
+        <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
+            <a href="{{url_for('detail', youtube_id=exercise.youtube_id)}}">
+              
+              <div class="d-flex justify-content-center align-items-center" style="background-image: url({{exercise.thumbnail}});
+                                                                                                background-position: center;
+                                                                                                background-size: cover;
+                                                                                                width: 100%;
+                                                                                                height: 130px;">
+                  <i class="fab fa-youtube" style="font-size: 44px;  color:red;"></i>                
               </div>
               
+              {#<img class="card-img-top" src="{{exercise.thumbnail}}" alt="Card image cap" width="200px" height="130px">#}
+            
+            <div class="card-body">
+              <p class="card-text" style="color:black;">{{exercise.title}}</p>
+            </div>
+            </a>
           </div>
-          {% endfor %}
-          
+      {%endfor%}
+
       </div>
 
+          <!-- thêm video tại đây -->
     </section>
 
     <!-- Portfolio Modals -->
@@ -208,16 +213,20 @@
               <div class="rl"></div>
             </div>
           </div>
-
           <div class="container">
             <div class="row">
               <div class="col-lg-8 mx-auto">
                 <div class="modal-body">
-                    <h2 class="text-uppercase" style="color:black;">Chế độ tăng cân kết hợp giữa chất đạm, chất béo và tinh bột</h2>
+                  <!-- Project Details Go Here -->
+                  <h2 class="text-uppercase" style="color:black;">Chế độ tăng cân kết hợp giữa chất đạm, chất béo và tinh bột</h2>
+                  <!-- <p class="item-intro text-muted">Chế độ ăn eat clean cho cơ thể khỏe mạnh và chống lão hóa</p> -->
                   <img class="img-fluid d-block mx-auto" src="../static/image/u1.jpg" alt="">
-                      <a target="_blank" href="{{url_for('menu_under')}}">
+                  <!-- <p style="color:black;">Nếu bạn đang muốn ăn lành mạnh để giảm cân nhưng không biết có những thực đơn ăn kiêng nào, -->
+                     <!-- có thể nấu thay đổi món ăn như thế nào để đánh bay mỡ bụng...  -->
+                    <!-- thì đây chính là giải pháp dành cho bạn.</p> -->
+                    <a target="_blank" href="{{url_for('menu_under')}}">
                         Tìm hiểu về 4 chế độ ăn tăng cân
-                      </a>
+                    </a><br>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
                     Close </button>
@@ -231,66 +240,66 @@
 
     <!-- Modal 2 -->
     <div class="portfolio-modal modal fade" id="portfolioModal2" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+              <div class="lr">
+                <div class="rl"></div>
+              </div>
             </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h2 class="text-uppercase">Thực phẩm giúp tăng cân tự nhiên</h2>
-                  <img class="img-fluid d-block mx-auto" src="../static/image/u2.jpg" alt="">
-                  <p>Cần bổ sung các loại thực phẩm giúp tăng cân có nguồn dinh dưỡng cao giúp nạp năng lượng,  bổ sung dưỡng chất và giúp tăng cân nhanh chóng. Sau đây là top 15 thực phẩm tăng cân dành cho người gầy.</p>
-                      <a target="_blank" href="{{url_for('menu_under1')}}">
-                        Thực đơn cho bạn
-                      </a>
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>
-                    Close </button>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8 mx-auto">
+                  <div class="modal-body">
+                    <!-- Project Details Go Here -->
+                    <h2 class="text-uppercase">Thực phẩm giúp tăng cân tự nhiên</h2>
+                    <img class="img-fluid d-block mx-auto" src="../static/image/u2.jpg" alt="">
+                    <p>Cần bổ sung các loại thực phẩm giúp tăng cân có nguồn dinh dưỡng cao giúp nạp năng lượng,  bổ sung dưỡng chất và giúp tăng cân nhanh chóng. Sau đây là top 15 thực phẩm tăng cân dành cho người gầy.</p>
+                        <a target="_blank" href="{{url_for('menu_under1')}}">
+                          Thực đơn cho bạn
+                        </a>
+                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                      <i class="fas fa-times"></i>
+                      Close </button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
-    <!-- Modal 3 -->
-    <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
-      <div class="modal-dialog">
-        <div class="modal-content">
-          <div class="close-modal" data-dismiss="modal">
-            <div class="lr">
-              <div class="rl"></div>
+  
+      <!-- Modal 3 -->
+      <div class="portfolio-modal modal fade" id="portfolioModal3" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog">
+          <div class="modal-content">
+            <div class="close-modal" data-dismiss="modal">
+              <div class="lr">
+                <div class="rl"></div>
+              </div>
             </div>
-          </div>
-          <div class="container">
-            <div class="row">
-              <div class="col-lg-8 mx-auto">
-                <div class="modal-body">
-                  <!-- Project Details Go Here -->
-                  <h5 class="text-center">Những sai lầm cần tránh trong việc chọn thực phẩm tăng cân dành cho người gầy</h5>
-                  <!-- <p class="item-intro text-muted">Chế độ ăn eat clean cho cơ thể khỏe mạnh và chống lão hóa.</p> -->
-                  <img class="img-fluid d-block mx-auto" src="../static/image/u3.jpg" alt="">
-                  <p>Ăn nhiều đồ ăn chiên rán, tinh bột<br>
-                    Bổ xung quá nhiều đạm động vật<br>
-                    Không ăn rau
-                  <button class="btn btn-primary" data-dismiss="modal" type="button">
-                    <i class="fas fa-times"></i>
-                    Close</button>
+            <div class="container">
+              <div class="row">
+                <div class="col-lg-8 mx-auto">
+                  <div class="modal-body">
+                    <!-- Project Details Go Here -->
+                    <h5 class="text-center">Những sai lầm cần tránh trong việc chọn thực phẩm tăng cân dành cho người gầy</h5>
+                    <!-- <p class="item-intro text-muted">Chế độ ăn eat clean cho cơ thể khỏe mạnh và chống lão hóa.</p> -->
+                    <img class="img-fluid d-block mx-auto" src="../static/image/u3.jpg" alt="">
+                    <p>Ăn nhiều đồ ăn chiên rán, tinh bột<br>
+                      Bổ xung quá nhiều đạm động vật<br>
+                      Không ăn rau
+                    <button class="btn btn-primary" data-dismiss="modal" type="button">
+                      <i class="fas fa-times"></i>
+                      Close</button>
+                  </div>
                 </div>
               </div>
             </div>
           </div>
         </div>
       </div>
-    </div>
-
+  
     <!-- Modal 4 -->
     <div class="portfolio-modal modal fade" id="portfolioModal4" tabindex="-1" role="dialog" aria-hidden="true">
       <div class="modal-dialog">
@@ -306,11 +315,14 @@
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
                   <h2 class="text-uppercase">Detox</h2>
-                  <p class="item-intro text-muted">Tham khảo một số công thức detox cơ bản</p>
-                  <img class="img-fluid d-block mx-auto" src="../static/image/detox3.jpg" alt="">
-                  <p> Detox là phương pháp thanh lọc cơ thể, làm sạch từ bên trong giúp các cơ quan trên cơ thể chúng ta hoạt động tốt hơn. Bằng cách đẩy các độc tố, kí sinh trùng, vi khuẩn và các chất dư thừa như mỡ và nước giúp giảm đi chút cân thừa và cơ thể chúng ta khỏe mạnh hơn.
-                    <a targer="_blank" href="{{url_for('detox_underweight')}}">Cách làm detox đơn giản cho bạn</a>
-                  </p>
+                  <p class="item-intro text-muted">Thải độc (detox) và chống oxy hóa</p>
+                  <img class="img-fluid d-block mx-auto" src="../static/image/detox2.jpg" alt="">
+                  <p> detox là phương pháp thanh lọc cơ thể, 
+                    làm sạch từ bên trong giúp các cơ quan trên cơ thể chúng ta
+                     hoạt động tốt hơn. Bằng cách đẩy các độc tố, kí sinh trùng, 
+                     vi khuẩn và các chất dư thừa như mỡ và nước giúp giảm đi chút 
+                     cân thừa và cơ thể chúng ta khỏe mạnh hơn.</p>
+                    <a href="{{url_for('detox')}}" target="_blank">Cách làm detox đơn giản cho bạn</a>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
                     Close </button>
@@ -337,12 +349,13 @@
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
                   <h2 class="text-uppercase">Detox</h2>
-                  <p class="item-intro text-muted">Detox là gì?</p>
-                  <img class="img-fluid d-block mx-auto" src="../static/image/detox4.jpg" alt="">
-                  <p>detox là phương pháp thanh lọc cơ thể, làm sạch từ bên trong giúp các cơ quan trên cơ thể chúng ta hoạt động tốt hơn. Bằng cách đẩy các độc tố, kí sinh trùng,
-                     vi khuẩn và các chất dư thừa như mỡ và nước giúp giảm đi chút cân thừa và cơ thể chúng ta khỏe mạnh hơn.
+                  <p class="item-intro text-muted">Thải độc (detox) và chống oxy hóa</p>
+                  <img class="img-fluid d-block mx-auto" src="../static/image/detox3.jpg" alt="">
+                  <p>detox là phương pháp thanh lọc cơ thể, làm sạch từ bên 
+                    trong giúp các cơ quan trên cơ thể chúng ta hoạt động tốt hơn.
+                     Bằng cách đẩy các độc tố, kí sinh trùng, vi khuẩn và các chất dư thừa 
+                     như mỡ và nước giúp giảm đi chút cân thừa và cơ thể chúng ta khỏe mạnh hơn.</p>
                     <a target="_blank" href="https://detoxgreen.vn/detox-la-gi-tac-dung-cua-detox-nhu-nao.html">TÌm hiểu thêm về detox và tác dụng</a>
-                  </p>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
                     Close</button>
@@ -369,11 +382,9 @@
                 <div class="modal-body">
                   <!-- Project Details Go Here -->
                   <h2 class="text-uppercase">Detox</h2>
-                  <p class="item-intro text-muted">Detox có dành cho người gầy?</p>
-                  <img class="img-fluid d-block mx-auto" src="../static/image/detox6.jpg" alt="">
-                  <p>Detox  thanh lọc cơ thể để đưa các chất độc ra ngoài sẽ giúp bạn có một cơ thể khỏe mạnh và phòng tránh được nhiều bệnh tật nguy hiểm. Đặc biệt với những người gầy muốn tăng cân nhanh thì việc thanh lọc cơ thể là tiền đề thúc đẩy quá trình tăng cân.
-                    <a target="_blank" href="http://vietnamnet.vn/vn/suc-khoe/vi-sao-nguoi-gay-muon-tang-can-phai-thanh-loc-co-the-421962.html">TÌm hiểu thêm về tác dụng của detox trong quá trình tăng cân</a>
-                  </p>
+                  <p class="item-intro text-muted">Thanh lọc cơ thể từ bên trong</p>
+                  <img class="img-fluid d-block mx-auto" src="../static/image/detox5.jpg" alt="" >
+                  <p>Detox chống lão hóa và có tác dụng làm đẹp da tự nhiên</p>
                   <button class="btn btn-primary" data-dismiss="modal" type="button">
                     <i class="fas fa-times"></i>
                     Close</button>
@@ -384,12 +395,6 @@
         </div>
       </div>
     </div>
-
-    <!--Chế độ tập luyện   -->
-
-
-    <!--Để hiện lên thì phải chỉnh ở dưới  -->
-
 
 
 
