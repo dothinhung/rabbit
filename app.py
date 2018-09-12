@@ -31,7 +31,7 @@ def login():
         password = form['password']
         users = User.objects(uname__exact=uname, password__exact=password)
         if len(users) == 0:
-            error = 'Wrong password! Please try again!'
+            error = 'Wrong username or password! Please try again!'
             return render_template('login.html', error=error)
         else:
             user_id = str(users[0].id)

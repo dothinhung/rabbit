@@ -152,12 +152,12 @@
           </h3>
 
 
-          <h4 class="text-center font-lobster my-3">Aerobic</h4>
-          {%for video in videos %}
+          <h4 class="text-center font-lobster my-3">Yoga</h4>
+          {%for yoga in yogas %}
           <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
-              <a href="{{url_for('detail', youtube_id=video.youtube_id)}}">
+              <a href="{{url_for('detail', youtube_id=yoga.youtube_id)}}">
                 
-                <div class="d-flex justify-content-center align-items-center" style="background-image: url({{video.thumbnail}});
+                <div class="d-flex justify-content-center align-items-center" style="background-image: url({{yoga.thumbnail}});
                                                                                                   background-position: center;
                                                                                                   background-size: cover;
                                                                                                   width: 100%;
@@ -165,10 +165,10 @@
                     <i class="fab fa-youtube" style="font-size: 44px;  color:red;"></i>                
                 </div>
                 
-                {#<img class="card-img-top" src="{{video.thumbnail}}" alt="Card image cap" width="200px" height="130px">#}
+                {#<img class="card-img-top" src="{{yoga.thumbnail}}" alt="Card image cap" width="200px" height="130px">#}
               
               <div class="card-body">
-                <p class="card-text" style="color:black;">{{video.title}}</p>
+                <p class="card-text" style="color:black;">{{yoga.title}}</p>
               </div>
               </a>
             </div>
@@ -176,11 +176,11 @@
 
           
         <h4 class="text-center font-lobster my-3">Cardio</h4>
-        {%for exercise in exercises %}
+        {%for underweight in underweights %}
         <div class="card d-inline-block my-2 mx-1" style="width: 18rem;">
-            <a href="{{url_for('detail', youtube_id=exercise.youtube_id)}}">
+            <a href="{{url_for('detail', youtube_id=underweight.youtube_id)}}">
               
-              <div class="d-flex justify-content-center align-items-center" style="background-image: url({{exercise.thumbnail}});
+              <div class="d-flex justify-content-center align-items-center" style="background-image: url({{underweight.thumbnail}});
                                                                                                 background-position: center;
                                                                                                 background-size: cover;
                                                                                                 width: 100%;
@@ -188,14 +188,15 @@
                   <i class="fab fa-youtube" style="font-size: 44px;  color:red;"></i>                
               </div>
               
-              {#<img class="card-img-top" src="{{exercise.thumbnail}}" alt="Card image cap" width="200px" height="130px">#}
+              {#<img class="card-img-top" src="{{underweight.thumbnail}}" alt="Card image cap" width="200px" height="130px">#}
             
             <div class="card-body">
-              <p class="card-text" style="color:black;">{{exercise.title}}</p>
+              <p class="card-text" style="color:black;">{{underweight.title}}</p>
             </div>
             </a>
           </div>
       {%endfor%}
+
 
       </div>
 
